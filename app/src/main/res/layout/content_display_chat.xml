@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".view.DisplayChatActivity"
-    tools:showIn="@layout/activity_display_chat">
+    tools:showIn="@layout/activity_display_chat"
+    android:background="@color/colorSecondary">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatView"
