@@ -23,7 +23,7 @@ public class HistoryPresenterImpl implements MainContract.HistoryPresenter {
         repo.loadAllDevices(new MessageRepository.DevicePostHandler() {
             @Override
             public void handleResponse(List<DeviceInfo> devices) {
-                view.showDeviceList(devices);
+                updateData(devices);
             }
         });
     }
@@ -48,6 +48,7 @@ public class HistoryPresenterImpl implements MainContract.HistoryPresenter {
 
     @Override
     public void onDeviceItemClicked(int i) {
-        view.showDisplayedChat(devices.get(i).mac);
+        DeviceInfo device = devices.get(i);
+        view.showDisplayedChat(device.mac,device.lastDate.getTime(),device.name);
     }
 }

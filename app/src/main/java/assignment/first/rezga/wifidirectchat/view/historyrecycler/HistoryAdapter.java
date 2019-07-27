@@ -8,10 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import assignment.first.rezga.wifidirectchat.MainContract;
-import java.util.List;
 
 import assignment.first.rezga.wifidirectchat.R;
-import assignment.first.rezga.wifidirectchat.model.DeviceInfo;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryViewHolder> {
 
@@ -42,7 +40,4 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryViewHolder> {
         return presenter.getSavedDevicesCount();
     }
 
-    public void setData(List<DeviceInfo> data) {
-        presenter.updateData(data);
-    }
 }

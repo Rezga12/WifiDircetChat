@@ -18,8 +18,8 @@ public interface MainContract  {
     }
 
     interface HistoryView{
-        void showDeviceList(List<DeviceInfo> data);
-        void showDisplayedChat(String peerAddr);
+        //void showDeviceList(List<DeviceInfo> data);
+        void showDisplayedChat(String peerAddr, long date, String phoneName);
         void refreshDeviceList();
     }
 
