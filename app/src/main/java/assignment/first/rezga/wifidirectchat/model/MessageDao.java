@@ -36,4 +36,9 @@ public interface MessageDao {
     @Query("delete from devices")
     int deleteAllDevices();
 
+    @Query("select devices.mac as mac, devices.name as name, count(*) as messageNum,max(sendTime) as lastDate " +
+            "from devices left join messages " +
+            "on devices.mac = messages.peerAddress " +
+            "group by devices.mac")
+    List<DeviceInfo> getDeviceInfos();
 }

@@ -1,22 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="AAAA" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="6f1dbd94-3ee8-466e-93f5-c3bc88dbec56" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/Converters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/Device.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/MessageBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/MessageDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/MessageRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_amitshekhar_android_debug_db_1_0_6_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_amitshekhar_android_debug_db_base_1_0_6_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/MainContract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/DeviceInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/presenter/HistoryPresenterImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/ChatFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/DisplayChatActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/HistoryFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/historyrecycler/HistoryAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/historyrecycler/HistoryViewHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_display_chat.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/cell_history.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_display_chat.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_chat.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_history.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/MessageBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/MessageBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/MessageDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/MessageDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/MessageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/MessageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,52 +63,27 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-              <folding>
-                <element signature="e#814#815#0" expanded="true" />
-                <element signature="e#839#840#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/Converters.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/Device.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/MessageRepository.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/DisplayChatActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="36" column="56" lean-forward="true" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="56" />
+            <state relative-caret-position="442">
+              <caret line="42" column="77" selection-start-line="42" selection-start-column="77" selection-end-line="42" selection-end-column="77" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/MessageBase.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_display_chat.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/MainContract.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="11" column="82" selection-start-line="11" selection-start-column="82" selection-end-line="11" selection-end-column="82" />
+            <state relative-caret-position="255">
+              <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,7 +91,75 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/presenter/HistoryPresenterImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#682#882#0" expanded="true" />
+                <element signature="e#881#882#0" expanded="true" />
+                <element signature="e#946#947#0" expanded="true" />
+                <element signature="e#970#971#0" expanded="true" />
+                <element signature="e#1487#1488#0" expanded="true" />
+                <element signature="e#1545#1546#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_display_chat.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/historyrecycler/HistoryViewHolder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1000#1185#0" expanded="true" />
+                <element signature="e#1184#1185#0" expanded="true" />
+                <element signature="e#1166#1167#0" expanded="true" />
+                <element signature="e#1212#1213#0" expanded="true" />
+                <element signature="e#1243#1244#0" expanded="true" />
+                <element signature="e#1299#1300#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/HistoryFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="76" column="65" selection-start-line="76" selection-start-column="65" selection-end-line="76" selection-end-column="65" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2267#2268#0" expanded="true" />
+                <element signature="e#2304#2305#0" expanded="true" />
+                <element signature="e#2504#2505#0" expanded="true" />
+                <element signature="e#2526#2527#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="layoutResourceFile_vertical" />
+        <option value="layoutResourceFile" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -94,26 +167,50 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_chat.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/ChatFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/HistoryViewHolder.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/DeviceInfo.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/MessageBase.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/MessageDao.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/MessageRepository.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/cell_history.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_history.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/DisplayMessagesActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/app_bar_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_display_messages.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_basic.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_basic.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_display_chat.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_display_chat.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/historyrecycler/HistoryAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/MainContract.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/presenter/HistoryPresenterImpl.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/historyrecycler/HistoryViewHolder.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/Constants.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/HistoryFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/DisplayChatActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1124" />
-    <option name="height" value="849" />
+    <option name="x" value="-7" />
+    <option name="width" value="814" />
+    <option name="height" value="867" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -141,6 +238,58 @@
             </path>
             <path>
               <item name="WifiDircetChat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="wifidirectchat" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="presenter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WifiDircetChat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="wifidirectchat" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WifiDircetChat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="wifidirectchat" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="historyrecycler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WifiDircetChat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="WifiDircetChat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="WifiDircetChat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="menu" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="WifiDircetChat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="WifiDircetChat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="styles" type="c431d0b8:AndroidResGroupNode" />
+            </path>
+            <path>
+              <item name="WifiDircetChat" type="1abcf292:AndroidViewProjectNode" />
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
@@ -150,11 +299,20 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="device.picker.selection" value="Nexus_5X_API_28" />
+    <property name="device.picker.selection" value="W3D7N17324000145" />
     <property name="last_opened_file_path" value="$USER_HOME$/AndroidStudioProjects/testp2pandroid" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RecentsManager">
+    <key name="android.template.packageName">
+      <recent name="assignment.first.rezga.wifidirectchat.view" />
+      <recent name="assignment.first.rezga.wifidirectchat" />
+    </key>
+    <key name="android.template.parentActivityClass">
+      <recent name="" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rezga\Desktop\WifiDircetChat\app\src\main\res\layout" />
       <recent name="C:\Users\rezga\Desktop\WifiDircetChat\app\src\main\java\assignment\first\rezga\wifidirectchat\model" />
     </key>
   </component>
@@ -250,47 +408,95 @@
       <option name="project" value="LOCAL" />
       <updated>1564124963435</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="getting ready">
+      <created>1564125712697</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1564125712697</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" visible="true" weight="0.32969153" />
-      <window_info id="Structure" side_tool="true" />
-      <window_info id="Build Variants" side_tool="true" />
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="Resources Explorer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Run" />
-      <window_info anchor="bottom" id="Logcat" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="TODO" />
-      <window_info anchor="bottom" id="Android Profiler" />
-      <window_info anchor="bottom" id="Debug" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Build" visible="true" weight="0.32974428" />
-      <window_info anchor="right" id="Device File Explorer" side_tool="true" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Gradle" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Palette&#9;" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.23200513" />
+      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Build Variants" order="4" side_tool="true" />
+      <window_info id="Image Layers" order="5" />
+      <window_info id="Designer" order="6" />
+      <window_info id="Resources Explorer" order="7" />
+      <window_info id="Capture Tool" order="8" />
+      <window_info anchor="bottom" id="Run" order="0" weight="0.32974428" />
+      <window_info anchor="bottom" id="Logcat" order="1" weight="0.32974428" />
+      <window_info anchor="bottom" id="TODO" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" />
+      <window_info anchor="bottom" id="Terminal" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" weight="0.32974428" />
+      <window_info anchor="bottom" id="Version Control" order="6" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.23553163" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" />
+      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Gradle" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="right" id="Preview" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.23200513" />
+      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Build Variants" order="4" side_tool="true" />
+      <window_info id="Image Layers" order="5" />
+      <window_info id="Designer" order="6" />
+      <window_info id="Resources Explorer" order="7" />
+      <window_info id="Capture Tool" order="8" />
+      <window_info anchor="bottom" id="Run" order="0" weight="0.32974428" />
+      <window_info anchor="bottom" id="Logcat" order="1" weight="0.32974428" />
+      <window_info anchor="bottom" id="TODO" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" />
+      <window_info anchor="bottom" id="Terminal" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" weight="0.32974428" />
+      <window_info anchor="bottom" id="Version Control" order="6" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.23553163" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" />
+      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Gradle" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="right" id="Preview" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+    </layout-to-restore>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="some commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="some commit" />
+    <MESSAGE value="getting ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="getting ready" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/Converters.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_chat.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/presenter/HistoryPresenter.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -301,31 +507,208 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/DeviceInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-          <folding>
-            <element signature="e#814#815#0" expanded="true" />
-            <element signature="e#839#840#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="29" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/MessageBase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="93">
-          <caret line="11" column="82" selection-start-line="11" selection-start-column="82" selection-end-line="11" selection-end-column="82" />
+          <caret line="11" column="61" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="36" column="64" selection-start-line="36" selection-start-column="64" selection-end-line="36" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/MessageDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/model/MessageRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="36" column="56" lean-forward="true" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="56" />
+        <state relative-caret-position="714">
+          <caret line="113" column="41" selection-start-line="113" selection-start-column="41" selection-end-line="113" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-111">
+          <caret line="99" column="24" selection-start-line="99" selection-start-column="24" selection-end-line="99" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_history.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/DisplayMessagesActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/nav_header_main.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/main.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cell_history.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_display_messages.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_basic.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_basic.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/basic.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_main.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/MainContract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_display_chat.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_display_chat.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/presenter/HistoryPresenterImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#682#882#0" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
+            <element signature="e#946#947#0" expanded="true" />
+            <element signature="e#970#971#0" expanded="true" />
+            <element signature="e#1487#1488#0" expanded="true" />
+            <element signature="e#1545#1546#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/ChatFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="132" lean-forward="true" selection-start-line="26" selection-start-column="132" selection-end-line="26" selection-end-column="132" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="66" lean-forward="true" selection-start-line="3" selection-start-column="66" selection-end-line="3" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/historyrecycler/HistoryAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-36">
+          <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+          <folding>
+            <element signature="e#1358#1359#0" expanded="true" />
+            <element signature="e#1382#1383#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/historyrecycler/HistoryViewHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1000#1185#0" expanded="true" />
+            <element signature="e#1184#1185#0" expanded="true" />
+            <element signature="e#1166#1167#0" expanded="true" />
+            <element signature="e#1212#1213#0" expanded="true" />
+            <element signature="e#1243#1244#0" expanded="true" />
+            <element signature="e#1299#1300#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/HistoryFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="76" column="65" selection-start-line="76" selection-start-column="65" selection-end-line="76" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2267#2268#0" expanded="true" />
+            <element signature="e#2304#2305#0" expanded="true" />
+            <element signature="e#2504#2505#0" expanded="true" />
+            <element signature="e#2526#2527#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/assignment/first/rezga/wifidirectchat/view/DisplayChatActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="42" column="77" selection-start-line="42" selection-start-column="77" selection-end-line="42" selection-end-column="77" />
         </state>
       </provider>
     </entry>

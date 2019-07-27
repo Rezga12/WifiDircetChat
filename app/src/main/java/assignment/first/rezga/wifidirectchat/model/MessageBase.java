@@ -9,7 +9,7 @@ import androidx.room.TypeConverters;
 import assignment.first.rezga.wifidirectchat.MainActivity;
 
 
-@Database(entities = {Message.class,Device.class},version = 1,exportSchema = false)
+@Database(entities = {Message.class,Device.class},version = 1)
 @TypeConverters({Converters.class})
 public abstract class MessageBase extends RoomDatabase {
 

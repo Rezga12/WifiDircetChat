@@ -8,6 +8,14 @@ import java.util.List;
 
 public class MessageRepository {
 
+    public interface DevicePostHandler{
+        void handleResponse(List<DeviceInfo> devices);
+    }
+
+    public interface MessagePostHandler{
+        void handleResponse(List<Message> messages);
+    }
+
     private static MessageDao dao;
 
 
@@ -29,11 +37,11 @@ public class MessageRepository {
         new InsertMessageTask().execute(message);
     }
 
-    public void loadAllDevices(LoadDevicesTask.PostHandler handler){
+    public void loadAllDevices(DevicePostHandler handler){
         new LoadDevicesTask(handler).execute();
     }
 
-    public void loadAllMessages(String peerAddr, LoadMessagesTask.PostHandler handler){
+    public void loadAllMessages(String peerAddr, MessagePostHandler handler){
         new LoadMessagesTask(handler).execute(peerAddr);
     }
 
@@ -75,30 +83,34 @@ public class MessageRepository {
         }
     }
 
-    private static class LoadDevicesTask extends  AsyncTask<Void,Void,List<Device>>{
 
-        public interface PostHandler{
-            void handleResponse(List<Device> devices);
-        }
 
-        PostHandler handler;
+    private static class LoadDevicesTask extends  AsyncTask<Void,Void,List<DeviceInfo>>{
 
-        public LoadDevicesTask(PostHandler handler){
+
+
+        DevicePostHandler handler;
+
+        public LoadDevicesTask(DevicePostHandler handler){
             super();
             this.handler = handler;
         }
 
         @Override
-        protected List<Device> doInBackground(Void... voids) {
+        protected List<DeviceInfo> doInBackground(Void... voids) {
 
-            return dao.loadAllDevices();
+            List<DeviceInfo> infos = dao.getDeviceInfos();
+            //Log.i("AAAA","size:  " + infos.size() +infos.get(0).name + " " + infos.get(0).messageNum +  " ommg " + infos.get(0).lastDate + " lel");
+
+
+            return infos;
 
 
 
         }
 
         @Override
-        protected void onPostExecute(List<Device> devices) {
+        protected void onPostExecute(List<DeviceInfo> devices) {
             super.onPostExecute(devices);
 
             handler.handleResponse(devices);
@@ -108,13 +120,10 @@ public class MessageRepository {
 
     private static class LoadMessagesTask extends AsyncTask<String,Void,List<Message>>{
 
-        public interface PostHandler{
-            void handleResponse(List<Message> messages);
-        }
 
-        PostHandler handler;
+        MessagePostHandler handler;
 
-        public LoadMessagesTask(PostHandler handler){
+        public LoadMessagesTask(MessagePostHandler handler){
             super();
             this.handler = handler;
         }

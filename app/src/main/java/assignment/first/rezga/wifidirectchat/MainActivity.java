@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+
+import android.util.Log;
 import android.view.View;
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -13,17 +15,39 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.Menu;
+import android.widget.Toast;
+
+import java.lang.reflect.Method;
+import java.util.Date;
+import java.util.List;
+
+import assignment.first.rezga.wifidirectchat.model.Device;
+import assignment.first.rezga.wifidirectchat.model.Message;
+import assignment.first.rezga.wifidirectchat.model.MessageRepository;
+import assignment.first.rezga.wifidirectchat.presenter.HistoryPresenterImpl;
+import assignment.first.rezga.wifidirectchat.view.ChatFragment;
+import assignment.first.rezga.wifidirectchat.view.HistoryFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
+
+
     private static Context context;
+
+    private FragmentManager fragmentManager = getSupportFragmentManager();
 
     public static  Context getContext(){
         return context;
     }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +72,43 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         context = getApplicationContext();
+
+
+
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        HistoryFragment frag = HistoryFragment.newInstance();
+        fragmentTransaction.add(R.id.frame,frag);
+        fragmentTransaction.commit();
+
+        MessageRepository repo = new MessageRepository();
+        final Message message = new Message();
+        message.peerAddress ="asdasdas";
+        message.sendTime = new Date(System.currentTimeMillis());
+        message.message = "message";
+
+        /*repo.insertMessage(message);
+        repo.insertMessage(message);
+        repo.insertMessage(message);
+        repo.insertMessage(message);*/
+
+//        repo.loadAllMessages("DDFF", new MessageRepository.MessagePostHandler() {
+//            @Override
+//            public void handleResponse(List<Message> messages) {
+//                Log.i("AAAA",messages.size() + " ");
+//            }
+//        });
+        //Device a = new Device();
+        //a.mac ="asdasdasd";
+        //a.name = "asdasdas";
+        //repo.insertDevice(a);
+//        repo.loadAllDevices(new MessageRepository.DevicePostHandler() {
+//            @Override
+//            public void handleResponse(List<Device> devices) {
+//                Log.i("AAAA",devices.size() + " aasd");
+//            }
+//        });
+
+        showDebugDBAddressLogToast(this);
 
     }
 
@@ -89,22 +150,34 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
         if (id == R.id.nav_home) {
-            // Handle the camera action
+            ChatFragment frag = ChatFragment.newInstance();
+            fragmentTransaction.replace(R.id.frame,frag);
+
         } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_tools) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+            HistoryFragment frag = HistoryFragment.newInstance();
+            fragmentTransaction.replace(R.id.frame,frag);
 
         }
+        fragmentTransaction.commit();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public static void showDebugDBAddressLogToast(Context context) {
+        if (BuildConfig.DEBUG) {
+            try {
+                Class<?> debugDB = Class.forName("com.amitshekhar.DebugDB");
+                Method getAddressLog = debugDB.getMethod("getAddressLog");
+                Object value = getAddressLog.invoke(null);
+                Toast.makeText(context, (String) value, Toast.LENGTH_LONG).show();
+            } catch (Exception ignore) {
+
+            }
+        }
     }
 }
