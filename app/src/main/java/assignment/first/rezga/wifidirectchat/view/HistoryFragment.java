@@ -54,7 +54,7 @@ public class HistoryFragment extends Fragment implements  MainContract.HistoryVi
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new HistoryAdapter(presenter);
         recyclerView.setAdapter(adapter);
-
+        recyclerView.addItemDecoration(new SpaceItemDecoration(15));
 
         Message mes = new Message();
 

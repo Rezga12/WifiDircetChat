@@ -63,9 +63,10 @@ public class DisplayChatActivity extends AppCompatActivity implements DisplayCha
 
 
         backButton = findViewById(R.id.chat_back_button);
-        backButton.setColorFilter(getResources().getColor(R.color.chat_toolbar_font_color), PorterDuff.Mode.SRC_ATOP);
+        backButton.setColorFilter(getResources().getColor(R.color.default_font_color), PorterDuff.Mode.SRC_ATOP);
 
         removeButton = findViewById(R.id.chat_icon_trash);
+        removeButton.setColorFilter(getResources().getColor(R.color.default_font_color), PorterDuff.Mode.SRC_ATOP);
 
         phoneNameField = findViewById(R.id.chat_phone_name);
         chatDateField = findViewById(R.id.chat_date);
@@ -87,6 +88,7 @@ public class DisplayChatActivity extends AppCompatActivity implements DisplayCha
         recyclerView.setLayoutManager(linearLayout);
         adapter = new ChatAdapter(presenter);
         recyclerView.setAdapter(adapter);
+
 
         presenter.loadMessages(intent.getStringExtra(Constants.PEER_ADDR_INTENT_KEY));
     }

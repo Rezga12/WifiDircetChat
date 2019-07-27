@@ -1,6 +1,8 @@
 package assignment.first.rezga.wifidirectchat.view.historyrecycler;
 
+import android.graphics.PorterDuff;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -8,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Date;
 
+import assignment.first.rezga.wifidirectchat.MainActivity;
 import assignment.first.rezga.wifidirectchat.MainContract;
 import assignment.first.rezga.wifidirectchat.R;
 
@@ -16,6 +19,7 @@ public class HistoryViewHolder extends RecyclerView.ViewHolder implements MainCo
     private TextView nameField;
     private TextView time;
     private TextView messageNum;
+    private ImageView letter;
 
     private MainContract.HistoryPresenter presenter;
 
@@ -34,6 +38,9 @@ public class HistoryViewHolder extends RecyclerView.ViewHolder implements MainCo
                 HistoryViewHolder.this.presenter.onDeviceItemClicked(getAdapterPosition());
             }
         });
+
+        letter = itemView.findViewById(R.id.letter);
+        letter.setColorFilter(MainActivity.getContext().getResources().getColor(R.color.default_font_color), PorterDuff.Mode.SRC_ATOP);
 
     }
 
