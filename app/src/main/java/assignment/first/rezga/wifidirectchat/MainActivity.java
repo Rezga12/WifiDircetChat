@@ -1,12 +1,10 @@
 package assignment.first.rezga.wifidirectchat;
 
 import android.content.Context;
+import android.content.IntentFilter;
+import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
-import android.util.Log;
-import android.view.View;
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
@@ -17,24 +15,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Menu;
 import android.widget.Toast;
 
 import java.lang.reflect.Method;
 import java.util.Date;
-import java.util.List;
 
-import assignment.first.rezga.wifidirectchat.model.Device;
 import assignment.first.rezga.wifidirectchat.model.Message;
 import assignment.first.rezga.wifidirectchat.model.MessageRepository;
-import assignment.first.rezga.wifidirectchat.presenter.HistoryPresenterImpl;
-import assignment.first.rezga.wifidirectchat.view.ChatFragment;
+import assignment.first.rezga.wifidirectchat.view.ListPeersFragment;
 import assignment.first.rezga.wifidirectchat.view.HistoryFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+
 
 
 
@@ -47,6 +44,7 @@ public class MainActivity extends AppCompatActivity
         return context;
     }
 
+    private final IntentFilter intentFilter = new IntentFilter();
 
 
     @Override
@@ -80,30 +78,32 @@ public class MainActivity extends AppCompatActivity
         message.sendTime = new Date(System.currentTimeMillis());
         message.message = "message";
 
-        /*repo.insertMessage(message);
-        repo.insertMessage(message);
-        repo.insertMessage(message);
-        repo.insertMessage(message);*/
 
-//        repo.loadAllMessages("DDFF", new MessageRepository.MessagePostHandler() {
-//            @Override
-//            public void handleResponse(List<Message> messages) {
-//                Log.i("AAAA",messages.size() + " ");
-//            }
-//        });
-        //Device a = new Device();
-        //a.mac ="asdasdasd";
-        //a.name = "asdasdas";
-        //repo.insertDevice(a);
-//        repo.loadAllDevices(new MessageRepository.DevicePostHandler() {
-//            @Override
-//            public void handleResponse(List<Device> devices) {
-//                Log.i("AAAA",devices.size() + " aasd");
-//            }
-//        });
 
         showDebugDBAddressLogToast(this);
 
+
+
+
+
+
+    }
+
+    private void registerBroadcastReciever(){
+
+        // Indicates a change in the Wi-Fi P2P status.
+        intentFilter.addAction(WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION);
+
+        // Indicates a change in the list of available peers.
+        intentFilter.addAction(WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION);
+
+        // Indicates the state of Wi-Fi P2P connectivity has changed.
+        intentFilter.addAction(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION);
+
+        // Indicates this device's details have changed.
+        intentFilter.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION);
+
+//        MyBroadcastReceiver broadcastReceiver = new MyBroadcastReceiver(manager,channel,this);
     }
 
     @Override
@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         if (id == R.id.nav_home) {
-            ChatFragment frag = ChatFragment.newInstance();
+            ListPeersFragment frag = ListPeersFragment.newInstance();
             fragmentTransaction.replace(R.id.frame,frag);
 
         } else if (id == R.id.nav_gallery) {

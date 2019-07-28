@@ -28,7 +28,7 @@ public class HistoryViewHolder extends RecyclerView.ViewHolder implements MainCo
 
         this.presenter = presenter;
 
-        nameField = itemView.findViewById(R.id.history_name);
+        nameField = itemView.findViewById(R.id.peer_address);
         time = itemView.findViewById(R.id.history_time);
         messageNum = itemView.findViewById(R.id.history_message_num);
 
@@ -41,6 +41,8 @@ public class HistoryViewHolder extends RecyclerView.ViewHolder implements MainCo
 
         letter = itemView.findViewById(R.id.letter);
         letter.setColorFilter(MainActivity.getContext().getResources().getColor(R.color.default_font_color), PorterDuff.Mode.SRC_ATOP);
+
+
 
     }
 

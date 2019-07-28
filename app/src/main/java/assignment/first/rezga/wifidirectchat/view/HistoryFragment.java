@@ -14,15 +14,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.Date;
-import java.util.List;
-
 import assignment.first.rezga.wifidirectchat.Constants;
-import assignment.first.rezga.wifidirectchat.MainActivity;
 import assignment.first.rezga.wifidirectchat.MainContract;
 import assignment.first.rezga.wifidirectchat.R;
-import assignment.first.rezga.wifidirectchat.model.Device;
-import assignment.first.rezga.wifidirectchat.model.DeviceInfo;
 import assignment.first.rezga.wifidirectchat.model.Message;
 import assignment.first.rezga.wifidirectchat.presenter.HistoryPresenterImpl;
 import assignment.first.rezga.wifidirectchat.view.historyrecycler.HistoryAdapter;
@@ -81,7 +75,7 @@ public class HistoryFragment extends Fragment implements  MainContract.HistoryVi
 
     @Override
     public void showDisplayedChat(String peerAddr, long date, String phoneName) {
-        Intent intent = new Intent(getActivity(),DisplayChatActivity.class);
+        Intent intent = new Intent(getActivity(), ArchivedChatActivity.class);
         intent.putExtra(Constants.PEER_ADDR_INTENT_KEY,peerAddr);
         intent.putExtra(Constants.CHAT_DATE_INTENT_KEY,date);
         intent.putExtra(Constants.PHONE_NAME_INTENT_KEY,phoneName);

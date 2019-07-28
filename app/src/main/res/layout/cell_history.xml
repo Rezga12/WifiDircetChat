@@ -8,7 +8,7 @@
 
     <TextView
 
-        android:id="@+id/history_name"
+        android:id="@+id/peer_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -32,7 +32,7 @@
         android:textColor="@color/default_color_two"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/history_name" />
+        app:layout_constraintTop_toBottomOf="@+id/peer_address" />
 
     <TextView
         android:id="@+id/history_message_num"

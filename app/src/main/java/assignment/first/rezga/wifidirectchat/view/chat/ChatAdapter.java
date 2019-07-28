@@ -7,17 +7,16 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import assignment.first.rezga.wifidirectchat.DisplayChatContract;
+import assignment.first.rezga.wifidirectchat.ChatContract;
 import assignment.first.rezga.wifidirectchat.R;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatViewHolder> {
-
-    private DisplayChatContract.DisplayChatPresenter presenter;
+    private ChatContract.ChatPresenter presenter;
 
     private static final int SELF_MESSAGE = 1;
     private static final int OTHER_MESSAGE = 2;
 
-    public ChatAdapter(DisplayChatContract.DisplayChatPresenter presenter){
+    public ChatAdapter(ChatContract.ChatPresenter presenter){
         super();
         this.presenter = presenter;
     }
@@ -38,7 +37,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ChatViewHolder holder, int position) {
-        presenter.onBindViewHOlderAtPosition(position,holder);
+        presenter.onBindViewHOlderAtPosition(position, holder);
     }
 
     @Override
