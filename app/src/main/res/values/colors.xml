@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#202225</color>
+    <color name="colorPrimaryLight">#222329</color>
+    <color name="colorPrimaryLightTransparent">#65383B44</color>
+    <color name ="colorLightTransparent">#65404F5A</color>
     <color name="colorPrimaryDark">#17171A</color>
     <color name="colorSecondary">#36393F</color>
     <color name="colorAccent">#D81B60</color>
     <color name="chat_toolbar_font_color">#F5F5F5</color>
     <color name="background">#2F3136</color>
     <color name="default_font_color">#D1D1D1</color>
-    <color name="default_color_two">#395257</color>
+    <color name="default_color_two">#3B5B61</color>
     <color name="colorSecondaryLight">#4B5058</color>
     <color name="transparentBackground">#7A2F3136</color>
+
+
+    <color name = "lightTextColor">#E9F4F5</color>
 </resources>

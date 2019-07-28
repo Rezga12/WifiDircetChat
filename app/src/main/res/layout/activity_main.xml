@@ -16,7 +16,7 @@
 
     <com.google.android.material.navigation.NavigationView
         app:itemIconTint="@color/default_font_color"
-        android:background="@color/colorSecondaryLight"
+        android:background="@drawable/nav_view_background"
         android:id="@+id/nav_view"
         app:itemTextColor="@color/default_font_color"
         android:layout_width="wrap_content"

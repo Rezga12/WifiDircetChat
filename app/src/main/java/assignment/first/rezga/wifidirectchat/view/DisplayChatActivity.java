@@ -1,5 +1,6 @@
 package assignment.first.rezga.wifidirectchat.view;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -41,6 +43,12 @@ public class DisplayChatActivity extends AppCompatActivity implements DisplayCha
     private RecyclerView recyclerView;
     private ChatAdapter adapter;
 
+    private static Context context;
+
+    public static  Context getContext(){
+        return context;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +56,7 @@ public class DisplayChatActivity extends AppCompatActivity implements DisplayCha
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        context = this;
 
         Intent intent = getIntent();
 

@@ -1,10 +1,12 @@
 package assignment.first.rezga.wifidirectchat.view;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -42,6 +44,8 @@ public class HistoryFragment extends Fragment implements  MainContract.HistoryVi
     private HistoryAdapter adapter;
     private MainContract.HistoryPresenter presenter;
 
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -49,6 +53,12 @@ public class HistoryFragment extends Fragment implements  MainContract.HistoryVi
         View view = inflater.inflate(R.layout.fragment_history,container,false);
 
         presenter = new HistoryPresenterImpl(this);
+
+        ImageView broom_left = view.findViewById(R.id.broom_one);
+        ImageView broom_right = view.findViewById(R.id.broom_2);
+
+        broom_right.setColorFilter(getResources().getColor(R.color.lightTextColor), PorterDuff.Mode.SRC_ATOP);
+        broom_left.setColorFilter(getResources().getColor(R.color.lightTextColor), PorterDuff.Mode.SRC_ATOP);
 
         recyclerView = view.findViewById(R.id.history_rec_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
