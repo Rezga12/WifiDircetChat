@@ -31,7 +31,6 @@ public class P2pConnector implements AvailablePeersContract.PeerListConnector {
 
         manager = (WifiP2pManager)activity.getSystemService(Context.WIFI_P2P_SERVICE);
         channel = manager.initialize(activity, activity.getMainLooper(), null);
-
     }
 
     @Override
@@ -68,12 +67,13 @@ public class P2pConnector implements AvailablePeersContract.PeerListConnector {
         @Override
         public void onConnectionInfoAvailable(WifiP2pInfo info) {
             // InetAddress from WifiP2pInfo struct.
-            final String groupOwnerAddress =  info.groupOwnerAddress.getHostAddress();
 
-            Log.i("AAAA",groupOwnerAddress);
+
+            //Log.i("AAAA",groupOwnerAddress);
             // After the group negotiation, we can determine the group owner
             // (server).
             if (info.groupFormed && info.isGroupOwner) {
+                final String groupOwnerAddress =  info.groupOwnerAddress.getHostAddress();
                 // Do whatever tasks are specific to the group owner.
                 // One common case is creating a group owner thread and accepting
                 // incoming connections.
@@ -83,19 +83,20 @@ public class P2pConnector implements AvailablePeersContract.PeerListConnector {
                 Toast.makeText(MainActivity.getContext(),"Owner " + groupOwnerAddress,Toast.LENGTH_LONG).show();
                 //Log.i("AAAA","owner");
 
-
+                presenter.onSuccessfulConnection("",groupOwnerAddress,info.isGroupOwner);
 
 
             } else if (info.groupFormed) {
+                final String groupOwnerAddress =  info.groupOwnerAddress.getHostAddress();
                 // The other device acts as the peer (client). In this case,
                 // you'll want to create a peer thread that connects
                 // to the group owner.
                 Toast.makeText(MainActivity.getContext(),"Client " + groupOwnerAddress,Toast.LENGTH_LONG).show();
                 //Log.i("AAAA","client");
-
+                presenter.onSuccessfulConnection("",groupOwnerAddress,info.isGroupOwner);
             }
 
-            presenter.onSuccessfulConnection("",groupOwnerAddress,info.isGroupOwner);
+
         }
     };
 }

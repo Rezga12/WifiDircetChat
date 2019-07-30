@@ -17,6 +17,12 @@ public interface ChatContract {
         boolean isSelfMessage(int position);
         void sendButtonClicked(String message);
         void setDeviceAddress(String addr);
+        void messageReceived(String message);
+        void onCommunicationEstsablished();
+
+        void cleanConnections();
+
+        void waitForConnectionAndStart();
     }
 
     interface ChatView{
@@ -25,11 +31,17 @@ public interface ChatContract {
         void navigateBackToMain();
         void refreshMessageList();
         void clearMessageField();
+
+        void showLoadingBar();
     }
 
     interface CellHolder{
         void setMessage(String text);
     }
 
+    interface ChatCommunicator{
+        void sendMessage(String message);
+        void startCommunication(String address, boolean isOwner);
+    }
 
 }

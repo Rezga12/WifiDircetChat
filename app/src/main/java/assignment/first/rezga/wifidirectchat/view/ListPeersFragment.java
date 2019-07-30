@@ -124,7 +124,7 @@ public class ListPeersFragment extends Fragment implements AvailablePeersContrac
         FragmentActivity activity = getActivity();
         if (activity!= null){
             Log.i("AAAA","activity not null");
-            receiver = new MyBroadcastReceiver(interactor,manager, channel, this,presenter);
+            receiver = new MyBroadcastReceiver(interactor,this,presenter);
             activity.registerReceiver(receiver, intentFilter);
         }
     }

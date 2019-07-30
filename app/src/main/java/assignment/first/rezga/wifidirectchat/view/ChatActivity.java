@@ -97,7 +97,7 @@ public class ChatActivity extends AppCompatActivity implements ChatContract.Chat
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDark));
 
-        presenter = new ChatPresenterImpl(this);
+        presenter = new ChatPresenterImpl(this,intent.getStringExtra(Constants.PEER_ADDR_INTENT_KEY),intent.getBooleanExtra(Constants.IS_OWNER_INTENT_KEY,false));
 
 
         backButton = findViewById(R.id.chat_back_button);
@@ -129,13 +129,12 @@ public class ChatActivity extends AppCompatActivity implements ChatContract.Chat
 
 
 
-        presenter.setDeviceAddress(intent.getStringExtra(Constants.PEER_ADDR_INTENT_KEY));
+        //presenter.setDeviceAddress(intent.getStringExtra(Constants.PEER_ADDR_INTENT_KEY));
 
 
-        new WorkerAsyncTask(intent.getBooleanExtra(Constants.IS_OWNER_INTENT_KEY,true),intent.getStringExtra(Constants.PEER_ADDR_INTENT_KEY)).execute();
 
         //presenter.loadMessages();
-
+        presenter.waitForConnectionAndStart();
 
 
 
@@ -168,63 +167,27 @@ public class ChatActivity extends AppCompatActivity implements ChatContract.Chat
         editText.setText("");
     }
 
+    @Override
+    public void showLoadingBar() {
 
-    public static class WorkerAsyncTask extends AsyncTask<Void,Void,Void>{
-        private boolean isOwner;
-        private String address;
-
-        public WorkerAsyncTask(boolean isOwner,String address){
-            this.isOwner = isOwner;
-            this.address = address;
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            if(isOwner){
-                ServerSocket serverSocket = null;
-                try {
-                    serverSocket = new ServerSocket(8888);
-                    Socket client = serverSocket.accept();
-
-                    DataOutputStream outStream = new DataOutputStream(client.getOutputStream());
-
-                    outStream.writeUTF("rezoylezo\0");
-                    outStream.flush();
-
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }else{
-                Socket socket = new Socket();
-                try {
-                    socket.bind(null);
-                    socket.connect((new InetSocketAddress(address, 8888)));
-
-                    DataInputStream dIn = new DataInputStream(socket.getInputStream());
-
-                    String str = dIn.readUTF();
-                    Log.i("AAAA","text: " + str);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-
-
-
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-            Toast.makeText(ChatActivity.getContext(),"chatStarted",Toast.LENGTH_LONG).show();
-        }
     }
 
-
-
-
+    @Override
+    protected void onPause() {
+        super.onPause();
+//        WifiP2pManager manager = (WifiP2pManager)getSystemService(Context.WIFI_P2P_SERVICE);
+//        WifiP2pManager.Channel channel = manager.initialize(this, getMainLooper(), null);
+//
+//        manager.removeGroup(channel, new WifiP2pManager.ActionListener() {
+//            @Override
+//            public void onSuccess() {
+//
+//            }
+//
+//            @Override
+//            public void onFailure(int reason) {
+//
+//            }
+//        });
+    }
 }

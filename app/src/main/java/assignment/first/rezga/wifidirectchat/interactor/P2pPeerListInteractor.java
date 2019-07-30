@@ -27,6 +27,38 @@ public class P2pPeerListInteractor {
         manager = (WifiP2pManager)activity.getSystemService(Context.WIFI_P2P_SERVICE);
         channel = manager.initialize(activity, activity.getMainLooper(), null);
 
+//        Log.d("AAAA", "trying to cancell connection");
+//        manager.cancelConnect(channel, new WifiP2pManager.ActionListener() {
+//            @Override
+//            public void onSuccess() {
+//                Log.d("AAAA", "cancel success");
+//            }
+//
+//            @Override
+//            public void onFailure(int reason) {
+//                Log.d("AAAA", "cancel failure");
+//            }
+//        });
+
+
+
+
+
+
+    }
+
+    public void cancelConnections(){
+//        manager.removeGroup(channel, new WifiP2pManager.ActionListener() {
+//            @Override
+//            public void onSuccess() {
+//
+//            }
+//
+//            @Override
+//            public void onFailure(int reason) {
+//
+//            }
+//        });
     }
 
     public void initiateDiscovery(){
@@ -49,7 +81,7 @@ public class P2pPeerListInteractor {
 
 
     }
-    public WifiP2pManager.PeerListListener peerListListener = new WifiP2pManager.PeerListListener() {
+    private WifiP2pManager.PeerListListener peerListListener = new WifiP2pManager.PeerListListener() {
         @Override
         public void onPeersAvailable(WifiP2pDeviceList peerList) {
 

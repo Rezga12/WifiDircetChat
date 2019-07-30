@@ -15,16 +15,14 @@ import assignment.first.rezga.wifidirectchat.view.ListPeersFragment;
 
 public class MyBroadcastReceiver extends BroadcastReceiver {
     ListPeersFragment fragment;
-    WifiP2pManager manager;
-    WifiP2pManager.Channel channel;
+
 
     private AvailablePeersContract.AvailablePeersPresenter presenter;
     private P2pPeerListInteractor interactor;
 
-    public MyBroadcastReceiver(P2pPeerListInteractor interactor, WifiP2pManager manager, WifiP2pManager.Channel channel, ListPeersFragment fragment, AvailablePeersContract.AvailablePeersPresenter presenter){
+    public MyBroadcastReceiver(P2pPeerListInteractor interactor, ListPeersFragment fragment, AvailablePeersContract.AvailablePeersPresenter presenter){
         this.fragment = fragment;
-        this.manager = manager;
-        this.channel = channel;
+
 
         this.presenter = presenter;
 
@@ -36,13 +34,13 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
 
-        interactor.requestPeers();
+
 
         if (WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION.equals(action)) {
             // Determine if Wifi P2P mode is enabled or not, alert
             Log.i("AAAA","WIFI_P2P_STATE_CHANGED_ACTION");
         } else if (WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION.equals(action)) {
-
+            interactor.requestPeers();
             Log.i("AAAA","peers changed");
 
         } else if (WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION.equals(action)) {
