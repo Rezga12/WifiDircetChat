@@ -9,7 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
+import android.net.NetworkInfo;
+import android.net.wifi.p2p.WifiP2pInfo;
+import android.net.wifi.p2p.WifiP2pManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -17,7 +22,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.BufferedWriter;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.Date;
 
 import assignment.first.rezga.wifidirectchat.ChatContract;
@@ -69,10 +86,6 @@ public class ChatActivity extends AppCompatActivity implements ChatContract.Chat
             }
         });
 
-
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-
         context = this;
 
         Intent intent = getIntent();
@@ -117,7 +130,15 @@ public class ChatActivity extends AppCompatActivity implements ChatContract.Chat
 
 
         presenter.setDeviceAddress(intent.getStringExtra(Constants.PEER_ADDR_INTENT_KEY));
-        presenter.loadMessages();
+
+
+        new WorkerAsyncTask(intent.getBooleanExtra(Constants.IS_OWNER_INTENT_KEY,true),intent.getStringExtra(Constants.PEER_ADDR_INTENT_KEY)).execute();
+
+        //presenter.loadMessages();
+
+
+
+
     }
 
     @Override
@@ -146,4 +167,64 @@ public class ChatActivity extends AppCompatActivity implements ChatContract.Chat
     public void clearMessageField() {
         editText.setText("");
     }
+
+
+    public static class WorkerAsyncTask extends AsyncTask<Void,Void,Void>{
+        private boolean isOwner;
+        private String address;
+
+        public WorkerAsyncTask(boolean isOwner,String address){
+            this.isOwner = isOwner;
+            this.address = address;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            if(isOwner){
+                ServerSocket serverSocket = null;
+                try {
+                    serverSocket = new ServerSocket(8888);
+                    Socket client = serverSocket.accept();
+
+                    DataOutputStream outStream = new DataOutputStream(client.getOutputStream());
+
+                    outStream.writeUTF("rezoylezo\0");
+                    outStream.flush();
+
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }else{
+                Socket socket = new Socket();
+                try {
+                    socket.bind(null);
+                    socket.connect((new InetSocketAddress(address, 8888)));
+
+                    DataInputStream dIn = new DataInputStream(socket.getInputStream());
+
+                    String str = dIn.readUTF();
+                    Log.i("AAAA","text: " + str);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+
+
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            Toast.makeText(ChatActivity.getContext(),"chatStarted",Toast.LENGTH_LONG).show();
+        }
+    }
+
+
+
+
 }

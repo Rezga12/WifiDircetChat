@@ -11,7 +11,7 @@ public interface ChatContract {
         void onBackPressed();
         void onRemovePressed();
         int getMessageCount();
-        void onBindViewHOlderAtPosition(int position, assignment.first.rezga.wifidirectchat.ChatContract.CellHolder holder);
+        void onBindViewHOlderAtPosition(int position, CellHolder holder);
         void loadMessages();
         void updateData(List<Message> data);
         boolean isSelfMessage(int position);

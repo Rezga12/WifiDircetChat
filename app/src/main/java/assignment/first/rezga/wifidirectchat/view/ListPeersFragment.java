@@ -1,7 +1,6 @@
 package assignment.first.rezga.wifidirectchat.view;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
@@ -25,6 +24,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import assignment.first.rezga.wifidirectchat.AvailablePeersContract;
 import assignment.first.rezga.wifidirectchat.Constants;
 import assignment.first.rezga.wifidirectchat.MyBroadcastReceiver;
+import assignment.first.rezga.wifidirectchat.interactor.P2pConnector;
+import assignment.first.rezga.wifidirectchat.interactor.P2pPeerListInteractor;
 import assignment.first.rezga.wifidirectchat.R;
 import assignment.first.rezga.wifidirectchat.presenter.AvailablePeersPresenterImpl;
 import assignment.first.rezga.wifidirectchat.view.listpeersrecycler.PeersListAdapter;
@@ -43,6 +44,8 @@ public class ListPeersFragment extends Fragment implements AvailablePeersContrac
     private PeersListAdapter adapter;
     private RecyclerView recyclerView;
 
+    private P2pPeerListInteractor interactor;
+
 
 
     public static ListPeersFragment newInstance() {
@@ -51,6 +54,8 @@ public class ListPeersFragment extends Fragment implements AvailablePeersContrac
 
         ListPeersFragment fragment = new ListPeersFragment();
         fragment.setArguments(args);
+
+
         return fragment;
     }
 
@@ -59,7 +64,7 @@ public class ListPeersFragment extends Fragment implements AvailablePeersContrac
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chat,container,false);
 
-        this.presenter = new AvailablePeersPresenterImpl(this);
+        this.presenter = new AvailablePeersPresenterImpl(this,getActivity());
 
         requestPermissions();
 
@@ -70,6 +75,10 @@ public class ListPeersFragment extends Fragment implements AvailablePeersContrac
         adapter = new PeersListAdapter(presenter);
         recyclerView.addItemDecoration(new SpaceItemDecoration(15));
         recyclerView.setAdapter(adapter);
+
+        interactor = new P2pPeerListInteractor(presenter,getActivity());
+
+        interactor.initiateDiscovery();
 
         return view;
     }
@@ -87,18 +96,10 @@ public class ListPeersFragment extends Fragment implements AvailablePeersContrac
         // Indicates this device's details have changed.
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION);
 
-        //???? NULL ptr exception
-        manager = (WifiP2pManager)getActivity().getSystemService(Context.WIFI_P2P_SERVICE);
-        channel = manager.initialize(getContext(), getActivity().getMainLooper(), null);
 
-        manager.discoverPeers(channel, new WifiP2pManager.ActionListener() {
 
-            @Override
-            public void onSuccess() {}
 
-            @Override
-            public void onFailure(int reasonCode) {}
-        });
+
     }
 
     private void requestPermissions(){
@@ -123,7 +124,7 @@ public class ListPeersFragment extends Fragment implements AvailablePeersContrac
         FragmentActivity activity = getActivity();
         if (activity!= null){
             Log.i("AAAA","activity not null");
-            receiver = new MyBroadcastReceiver(manager, channel, this,presenter);
+            receiver = new MyBroadcastReceiver(interactor,manager, channel, this,presenter);
             activity.registerReceiver(receiver, intentFilter);
         }
     }
@@ -144,11 +145,15 @@ public class ListPeersFragment extends Fragment implements AvailablePeersContrac
         adapter.notifyDataSetChanged();
     }
 
+
+
     @Override
-    public void navigateToChat(String name, String mac) {
+    public void navigateToChat(String name, String mac, boolean isOnwer) {
         Intent intent = new Intent(getContext(),ChatActivity.class);
         intent.putExtra(Constants.PHONE_NAME_INTENT_KEY,name);
         intent.putExtra(Constants.PEER_ADDR_INTENT_KEY,mac);
+        intent.putExtra(Constants.PEER_ADDR_INTENT_KEY,mac);
+        intent.putExtra(Constants.IS_OWNER_INTENT_KEY,isOnwer);
         if(getActivity() != null){
             getActivity().startActivity(intent);
         }
