@@ -87,14 +87,12 @@ public class ChatPresenterImpl implements ChatContract.ChatPresenter {
         message.peerAddress = peerAddr;
         message.sendTime = new Date(System.currentTimeMillis());
 
-//        repo.insertMessage(message);
+        repo.insertMessage(message);
 
         view.clearMessageField();
 
-
-//        loadMessages();
-
         communicator.sendMessage(message.message);
+        loadMessages();
 
         Log.i("AAAA", "send to communicator: " + message.message);
     }
@@ -105,8 +103,17 @@ public class ChatPresenterImpl implements ChatContract.ChatPresenter {
     }
 
     @Override
-    public void messageReceived(String message) {
+    public void messageReceived(String messageText) {
 
+        Message message = new Message();
+        message.isOwnMessage = false;
+        message.message = messageText;
+        message.peerAddress = peerAddr;
+        message.sendTime = new Date(System.currentTimeMillis());
+
+        repo.insertMessage(message);
+
+        loadMessages();
     }
 
 

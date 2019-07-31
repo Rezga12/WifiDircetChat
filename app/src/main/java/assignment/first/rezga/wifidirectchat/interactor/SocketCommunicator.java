@@ -50,7 +50,7 @@ public class SocketCommunicator implements ChatContract.ChatCommunicator {
     }
 
 
-    private static class CommunicateAsyncTask extends AsyncTask<Void,Void,Void> {
+    private static class CommunicateAsyncTask extends AsyncTask<Void,String,Void> {
         private final ChatContract.ChatPresenter presenter;
         private boolean isOwner;
         private String address;
@@ -69,8 +69,9 @@ public class SocketCommunicator implements ChatContract.ChatCommunicator {
 
 
             Socket mySocket = null;
+            ServerSocket serverSocket = null;
             if (isOwner) {
-                ServerSocket serverSocket = null;
+
 
                 try {
                     serverSocket = new ServerSocket(8888);
@@ -84,7 +85,9 @@ public class SocketCommunicator implements ChatContract.ChatCommunicator {
 
 
                 } catch (IOException e) {
+                    Log.e("AAAA",e.getMessage());
                     e.printStackTrace();
+                    return null;
                 }
             } else {
                 mySocket = new Socket();
@@ -105,31 +108,44 @@ public class SocketCommunicator implements ChatContract.ChatCommunicator {
 
             communicator.setSocket(mySocket);
             //presenter.loadMessages();
-            publishProgress();
+            publishProgress("");
 
             while (true) {
 
                 try {
-                    Log.i("AAAA","trying to receive : " +  mySocket.getLocalAddress() + " " + mySocket.getLocalSocketAddress() + " " + mySocket.getRemoteSocketAddress());
                     if (mySocket == null || mySocket.isClosed()) {
                         break;
                     }
+                    Log.i("AAAA","trying to receive : " +  mySocket.getLocalAddress() + " " + mySocket.getLocalSocketAddress() + " " + mySocket.getRemoteSocketAddress());
+
                     DataInputStream dIn = new DataInputStream(mySocket.getInputStream());
                     String str = dIn.readUTF();
                     Log.i("AAAA", "text: " + str);
-//                    publishProgress(str);
+                    publishProgress(str);
 
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
+            try {
+                if(serverSocket != null)
+                    serverSocket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             return null;
         }
 
         @Override
-        protected void onProgressUpdate(Void... voids) {
-            super.onProgressUpdate(voids);
-            Toast.makeText(ChatActivity.getContext(), "sockets connected with yoeac other", Toast.LENGTH_LONG).show();
+        protected void onProgressUpdate(String... messages) {
+            super.onProgressUpdate(messages);
+            if(messages[0].equals("")){
+                Toast.makeText(ChatActivity.getContext(), "sockets connected with yoeac other", Toast.LENGTH_LONG).show();
+
+            }else{
+                presenter.messageReceived(messages[0]);
+                Log.i("AAAA","message recieved " + messages[0]);
+            }
 
 
         }
