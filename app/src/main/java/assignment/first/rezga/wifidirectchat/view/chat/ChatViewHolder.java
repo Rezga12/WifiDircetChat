@@ -33,9 +33,9 @@ public class ChatViewHolder extends RecyclerView.ViewHolder implements ChatContr
         container = itemView.findViewById(R.id.container);
 
         parent = itemView.findViewById(R.id.parent);
-        timeContainer = itemView.findViewById(R.id.time_container);
+        //timeContainer = itemView.findViewById(R.id.time_container);
 
-        itemView.setOnClickListener(new View.OnClickListener() {
+        /*itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ConstraintSet set = new ConstraintSet();
@@ -45,7 +45,7 @@ public class ChatViewHolder extends RecyclerView.ViewHolder implements ChatContr
                 set.applyTo(timeContainer);
                 Log.i("AAAA","123");
             }
-        });
+        });*/
 
         this.presenter = presenter;
     }

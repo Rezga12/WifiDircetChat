@@ -7,6 +7,8 @@ import android.os.Bundle;
 
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+
+import android.util.Log;
 import android.view.MenuItem;
 import com.google.android.material.navigation.NavigationView;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -54,6 +56,9 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        showDebugDBAddressLogToast(this);
+
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -80,7 +85,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        showDebugDBAddressLogToast(this);
+
 
 
 
@@ -169,6 +174,7 @@ public class MainActivity extends AppCompatActivity
                 Method getAddressLog = debugDB.getMethod("getAddressLog");
                 Object value = getAddressLog.invoke(null);
                 Toast.makeText(context, (String) value, Toast.LENGTH_LONG).show();
+                Log.i("AAAA",(String) value);
             } catch (Exception ignore) {
 
             }

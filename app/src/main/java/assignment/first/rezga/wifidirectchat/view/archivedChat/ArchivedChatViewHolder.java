@@ -1,5 +1,6 @@
 package assignment.first.rezga.wifidirectchat.view.archivedChat;
 
+
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -8,9 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.transition.TransitionManager;
 
 import assignment.first.rezga.wifidirectchat.DisplayChatContract;
 import assignment.first.rezga.wifidirectchat.R;
+import assignment.first.rezga.wifidirectchat.view.ArchivedChatActivity;
 
 public class ArchivedChatViewHolder extends RecyclerView.ViewHolder implements DisplayChatContract.ChatCellHolder {
 
@@ -19,26 +22,47 @@ public class ArchivedChatViewHolder extends RecyclerView.ViewHolder implements D
     private ConstraintLayout parent;
     private ConstraintLayout timeContainer;
 
+    private ConstraintLayout root;
+
     private DisplayChatContract.DisplayChatPresenter presenter;
 
-    public ArchivedChatViewHolder(@NonNull final View itemView, DisplayChatContract.DisplayChatPresenter presenter) {
+    private boolean showtime = false;
+
+    public ArchivedChatViewHolder(@NonNull final View itemView, DisplayChatContract.DisplayChatPresenter presenter, final ArchivedChatActivity activity, boolean isSelf) {
         super(itemView);
 
         messageText = itemView.findViewById(R.id.message_text);
         container = itemView.findViewById(R.id.container);
 
-        parent = itemView.findViewById(R.id.parent);
-        timeContainer = itemView.findViewById(R.id.time_container);
+        //parent = itemView.findViewById(R.id.parent);
+
+
+        root = itemView.findViewById(R.id.parent);
+
+        final ConstraintSet set1 = new ConstraintSet();
+        final ConstraintSet set2 = new ConstraintSet();
+        if(isSelf){
+            set1.clone(itemView.getContext(),R.layout.cell_chat_self);
+            set2.clone(itemView.getContext(),R.layout.cell_chat_self_showtime);
+        }else{
+            set1.clone(itemView.getContext(),R.layout.cell_chat_other);
+            set2.clone(itemView.getContext(),R.layout.cell_chat_other_showtime);
+        }
+
+
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ConstraintSet set = new ConstraintSet();
-                //set.clone(parent);
-                set.connect(R.id.time_container,ConstraintSet.END,R.id.parent,ConstraintSet.END,80);
-                //TransitionManager.beginDelayedTransition(parent);
-                set.applyTo(timeContainer);
-                Log.i("AAAA","123");
+                TransitionManager.beginDelayedTransition(root);
+                if(showtime){
+                    set1.applyTo(root);
+
+                }else{
+                    Log.i("AAAA","showed message");
+                    set2.applyTo(root);
+                }
+                showtime = !showtime;
             }
         });
     }

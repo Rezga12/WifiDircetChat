@@ -89,7 +89,7 @@ public class ArchivedChatActivity extends AppCompatActivity implements DisplayCh
         LinearLayoutManager linearLayout = new LinearLayoutManager(this);
         linearLayout.setReverseLayout(true);
         recyclerView.setLayoutManager(linearLayout);
-        adapter = new ArchivedChatAdapter(presenter);
+        adapter = new ArchivedChatAdapter(presenter,this);
         recyclerView.setAdapter(adapter);
 
 

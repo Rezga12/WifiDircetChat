@@ -58,6 +58,11 @@ public class HistoryViewHolder extends RecyclerView.ViewHolder implements MainCo
 
     @Override
     public void setChatTime(Date date) {
-        time.setText(date.toString());
+        if(date != null){
+            time.setText(date.toString());
+        }else{
+            time.setText("No messages");
+        }
+
     }
 }

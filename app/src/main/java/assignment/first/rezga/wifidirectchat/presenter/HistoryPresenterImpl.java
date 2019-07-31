@@ -1,5 +1,7 @@
 package assignment.first.rezga.wifidirectchat.presenter;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +25,10 @@ public class HistoryPresenterImpl implements MainContract.HistoryPresenter {
         repo.loadAllDevices(new MessageRepository.DevicePostHandler() {
             @Override
             public void handleResponse(List<DeviceInfo> devices) {
+                Log.i("AAAA","size: " + devices.size());
+                for(DeviceInfo device : devices){
+                    Log.i("AAAA",device.name + " " + device.messageNum + device.lastDate);
+                }
                 updateData(devices);
             }
         });

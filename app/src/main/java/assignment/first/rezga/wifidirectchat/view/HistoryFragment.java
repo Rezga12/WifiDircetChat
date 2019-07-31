@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import assignment.first.rezga.wifidirectchat.Constants;
+import assignment.first.rezga.wifidirectchat.MainActivity;
 import assignment.first.rezga.wifidirectchat.MainContract;
 import assignment.first.rezga.wifidirectchat.R;
 import assignment.first.rezga.wifidirectchat.model.Message;
@@ -65,7 +66,7 @@ public class HistoryFragment extends Fragment implements  MainContract.HistoryVi
         //MainActivity.showDebugDBAddressLogToast();
         presenter.loadData();
 
-
+        MainActivity.showDebugDBAddressLogToast(MainActivity.getContext());
 
         return view;
     }
