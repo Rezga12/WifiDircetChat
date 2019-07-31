@@ -97,7 +97,10 @@ public class ChatActivity extends AppCompatActivity implements ChatContract.Chat
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDark));
 
-        presenter = new ChatPresenterImpl(this,intent.getStringExtra(Constants.PEER_ADDR_INTENT_KEY),intent.getBooleanExtra(Constants.IS_OWNER_INTENT_KEY,false));
+        presenter = new ChatPresenterImpl(this,intent.getStringExtra(Constants.PEER_ADDR_INTENT_KEY),
+                                                        intent.getBooleanExtra(Constants.IS_OWNER_INTENT_KEY,false),
+                                                        intent.getStringExtra(Constants.PHONE_NAME_INTENT_KEY),
+                                                        intent.getStringExtra(Constants.PEER_MAC_ADDR_INTENT_KEY) );
 
 
         backButton = findViewById(R.id.chat_back_button);

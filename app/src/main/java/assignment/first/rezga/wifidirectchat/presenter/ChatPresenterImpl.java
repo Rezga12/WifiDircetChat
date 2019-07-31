@@ -10,6 +10,7 @@ import java.util.List;
 import assignment.first.rezga.wifidirectchat.ChatContract;
 import assignment.first.rezga.wifidirectchat.DisplayChatContract;
 import assignment.first.rezga.wifidirectchat.interactor.SocketCommunicator;
+import assignment.first.rezga.wifidirectchat.model.Device;
 import assignment.first.rezga.wifidirectchat.model.Message;
 import assignment.first.rezga.wifidirectchat.model.MessageRepository;
 import assignment.first.rezga.wifidirectchat.view.ChatActivity;
@@ -19,19 +20,28 @@ public class ChatPresenterImpl implements ChatContract.ChatPresenter {
     private ChatContract.ChatCommunicator communicator;
     private MessageRepository repo;
 
-    private String peerAddr ="";
+    private String peerAddr = "";
     private boolean isOwner;
 
 
     private List<Message> messages = new ArrayList<>();
+    private String peerName;
 
-    public ChatPresenterImpl(ChatContract.ChatView view,String peerAddr, boolean isOnwer){
+    private String peerMacAddr = "";
+
+    public ChatPresenterImpl(ChatContract.ChatView view, String peerAddr, boolean isOnwer,  String peerName, String peerMacAddr){
         this.view = view;
         repo = new MessageRepository();
         this.communicator = new SocketCommunicator(this);
 
         this.peerAddr = peerAddr;
         this.isOwner = isOnwer;
+
+        this.peerName = peerName;
+
+
+        this.peerMacAddr = peerMacAddr;
+        repo.insertDevice(new Device(peerAddr,peerName));
 
     }
 
@@ -60,7 +70,7 @@ public class ChatPresenterImpl implements ChatContract.ChatPresenter {
     public void loadMessages() {
         Log.i("AAAA", "load messages");
         Toast.makeText(ChatActivity.getContext(), "loaded message", Toast.LENGTH_LONG).show();
-        repo.loadAllMessages(peerAddr, new MessageRepository.MessagePostHandler() {
+        repo.loadAllMessages(peerMacAddr, new MessageRepository.MessagePostHandler() {
             @Override
             public void handleResponse(List<Message> messages) {
                 updateData(messages);
@@ -84,7 +94,7 @@ public class ChatPresenterImpl implements ChatContract.ChatPresenter {
         Message message = new Message();
         message.isOwnMessage = true;
         message.message = messageText;
-        message.peerAddress = peerAddr;
+        message.peerAddress = peerMacAddr;
         message.sendTime = new Date(System.currentTimeMillis());
 
         repo.insertMessage(message);
@@ -108,7 +118,7 @@ public class ChatPresenterImpl implements ChatContract.ChatPresenter {
         Message message = new Message();
         message.isOwnMessage = false;
         message.message = messageText;
-        message.peerAddress = peerAddr;
+        message.peerAddress = peerMacAddr;
         message.sendTime = new Date(System.currentTimeMillis());
 
         repo.insertMessage(message);

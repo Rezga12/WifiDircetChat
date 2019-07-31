@@ -1,5 +1,6 @@
 package assignment.first.rezga.wifidirectchat;
 
+import java.net.InetAddress;
 import java.util.List;
 
 import assignment.first.rezga.wifidirectchat.model.Device;
@@ -14,15 +15,17 @@ public interface AvailablePeersContract {
         void onBindViewHolderAtPosition(int position, PeersListHolder holder);
 
         void onCellClicked(int position);
-        void onSuccessfulConnection(String peerName, String peerAddr, boolean isOwner);
-        void startConnection();
+        void onSuccessfulConnection(String peerName, String groupOwnerAddress, boolean isOwner, String peerMacAddr);
+        void startConnection(String peerName, String peerAddr);
         void savePeerInfo(String peerName, String peerAddr);
+
+       // void onSuccessfulConnection(String peerName, String groupOwnerAddress, boolean isGroupOwner,String peerAddr);
     }
 
     interface AvailablePeersView{
         void refreshPeerList();
 
-        void navigateToChat(String name, String mac, boolean isOwner);
+        void navigateToChat(String name, String mac, boolean isOwner, String peerMacAddr);
     }
 
     interface PeersListHolder{
@@ -32,7 +35,7 @@ public interface AvailablePeersContract {
 
     interface PeerListConnector{
         void connectToPeer(final String peerAddr, final String peerName);
-        void requestConnectionInfo();
+        void requestConnectionInfo(String peerName, String peerAddr);
     }
 
 }

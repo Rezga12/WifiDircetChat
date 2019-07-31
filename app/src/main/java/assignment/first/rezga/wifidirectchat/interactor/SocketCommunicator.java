@@ -140,8 +140,8 @@ public class SocketCommunicator implements ChatContract.ChatCommunicator {
         protected void onProgressUpdate(String... messages) {
             super.onProgressUpdate(messages);
             if(messages[0].equals("")){
-                Toast.makeText(ChatActivity.getContext(), "sockets connected with yoeac other", Toast.LENGTH_LONG).show();
-
+                //Toast.makeText(ChatActivity.getContext(), "sockets connected with yoeac other", Toast.LENGTH_LONG).show();
+                presenter.loadMessages();
             }else{
                 presenter.messageReceived(messages[0]);
                 Log.i("AAAA","message recieved " + messages[0]);

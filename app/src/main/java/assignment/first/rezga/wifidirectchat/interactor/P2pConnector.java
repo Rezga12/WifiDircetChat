@@ -22,6 +22,8 @@ public class P2pConnector implements AvailablePeersContract.PeerListConnector {
     private FragmentActivity activity;
 
     private AvailablePeersContract.AvailablePeersPresenter presenter;
+    private String PeerName;
+    private WifiP2pManager.ConnectionInfoListener connectionInfoListener;
 
 
     public P2pConnector(AvailablePeersContract.AvailablePeersPresenter presenter, FragmentActivity activity){
@@ -40,6 +42,7 @@ public class P2pConnector implements AvailablePeersContract.PeerListConnector {
         WifiP2pConfig config = new WifiP2pConfig();
         config.deviceAddress = peerAddr;
         config.wps.setup = WpsInfo.PBC;
+        P2pConnector.this.PeerName = peerName;
 
 
 
@@ -59,44 +62,53 @@ public class P2pConnector implements AvailablePeersContract.PeerListConnector {
     }
 
     @Override
-    public void requestConnectionInfo() {
+    public void requestConnectionInfo(String peerName, String peerAddr) {
+        connectionInfoListener = new MyConnectionInfoListener(peerName, peerAddr);
         manager.requestConnectionInfo(channel, connectionInfoListener);
     }
 
-    private WifiP2pManager.ConnectionInfoListener connectionInfoListener = new WifiP2pManager.ConnectionInfoListener() {
+
+    private class MyConnectionInfoListener implements WifiP2pManager.ConnectionInfoListener {
+        private String peerName;
+        private String peerAddr;
+
+        public MyConnectionInfoListener(String peerName, String peerAddr){
+            this.peerAddr = peerAddr;
+            this.peerName = peerName;
+        }
+
         @Override
         public void onConnectionInfoAvailable(WifiP2pInfo info) {
             // InetAddress from WifiP2pInfo struct.
 
 
-            //Log.i("AAAA",groupOwnerAddress);
-            // After the group negotiation, we can determine the group owner
-            // (server).
-            if (info.groupFormed && info.isGroupOwner) {
-                final String groupOwnerAddress =  info.groupOwnerAddress.getHostAddress();
-                // Do whatever tasks are specific to the group owner.
-                // One common case is creating a group owner thread and accepting
-                // incoming connections.
-                //new MainActivity.FileServerAsyncTask(activity).execute();
-                //
-                //
-                Toast.makeText(MainActivity.getContext(),"Owner " + groupOwnerAddress,Toast.LENGTH_LONG).show();
-                //Log.i("AAAA","owner");
-
-                presenter.onSuccessfulConnection("",groupOwnerAddress,info.isGroupOwner);
-
-
-            } else if (info.groupFormed) {
-                final String groupOwnerAddress =  info.groupOwnerAddress.getHostAddress();
-                // The other device acts as the peer (client). In this case,
-                // you'll want to create a peer thread that connects
-                // to the group owner.
-                Toast.makeText(MainActivity.getContext(),"Client " + groupOwnerAddress,Toast.LENGTH_LONG).show();
-                //Log.i("AAAA","client");
-                presenter.onSuccessfulConnection("",groupOwnerAddress,info.isGroupOwner);
+//            //Log.i("AAAA",groupOwnerAddress);
+//            // After the group negotiation, we can determine the group owner
+//            // (server).
+//            if (info.groupFormed && info.isGroupOwner) {
+//                final String groupOwnerAddress =  info.groupOwnerAddress.getHostAddress();
+//                // Do whatever tasks are specific to the group owner.
+//                // One common case is creating a group owner thread and accepting
+//                // incoming connections.
+//                //new MainActivity.FileServerAsyncTask(activity).execute();
+//                //
+//                //
+//                Toast.makeText(MainActivity.getContext(),"Owner " + groupOwnerAddress,Toast.LENGTH_LONG).show();
+//                //Log.i("AAAA","owner");
+//
+//                presenter.onSuccessfulConnection(peerName,peerAddr,info.isGroupOwner);
+//
+//
+//
+//            } else
+//
+            if (info.groupFormed) {
+                presenter.onSuccessfulConnection(peerName, info.groupOwnerAddress.getHostAddress(),info.isGroupOwner, peerAddr);
+                Log.i("AAAA","owner: " + info.groupOwnerAddress);
+                Log.i("AAAA", "peer " + peerAddr);
             }
 
 
         }
-    };
+    }
 }

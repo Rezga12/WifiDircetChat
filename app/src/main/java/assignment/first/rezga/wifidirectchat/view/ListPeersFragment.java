@@ -24,7 +24,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import assignment.first.rezga.wifidirectchat.AvailablePeersContract;
 import assignment.first.rezga.wifidirectchat.Constants;
 import assignment.first.rezga.wifidirectchat.MyBroadcastReceiver;
-import assignment.first.rezga.wifidirectchat.interactor.P2pConnector;
 import assignment.first.rezga.wifidirectchat.interactor.P2pPeerListInteractor;
 import assignment.first.rezga.wifidirectchat.R;
 import assignment.first.rezga.wifidirectchat.presenter.AvailablePeersPresenterImpl;
@@ -151,11 +150,11 @@ public class ListPeersFragment extends Fragment implements AvailablePeersContrac
 
 
     @Override
-    public void navigateToChat(String name, String mac, boolean isOnwer) {
+    public void navigateToChat(String name, String ownerAddr, boolean isOnwer, String peerMacAddr) {
         Intent intent = new Intent(getContext(),ChatActivity.class);
         intent.putExtra(Constants.PHONE_NAME_INTENT_KEY,name);
-        intent.putExtra(Constants.PEER_ADDR_INTENT_KEY,mac);
-        intent.putExtra(Constants.PEER_ADDR_INTENT_KEY,mac);
+        intent.putExtra(Constants.PEER_ADDR_INTENT_KEY,ownerAddr);
+        intent.putExtra(Constants.PEER_MAC_ADDR_INTENT_KEY,peerMacAddr);
         intent.putExtra(Constants.IS_OWNER_INTENT_KEY,isOnwer);
         if(getActivity() != null){
             getActivity().startActivity(intent);

@@ -54,13 +54,13 @@ public class AvailablePeersPresenterImpl implements AvailablePeersContract.Avail
     }
 
     @Override
-    public void onSuccessfulConnection(String peerName, String peerAddr, boolean isOwner) {
-        view.navigateToChat(peerName,peerAddr,isOwner);
+    public void onSuccessfulConnection(String peerName, String peerAddr, boolean isOwner,String peerMacAddr) {
+        view.navigateToChat(peerName,peerAddr,isOwner,peerMacAddr);
     }
 
     @Override
-    public void startConnection() {
-        connector.requestConnectionInfo();
+    public void startConnection(String peerName, String peerAddr) {
+        connector.requestConnectionInfo(peerName, peerAddr);
     }
 
 

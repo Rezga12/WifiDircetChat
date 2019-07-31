@@ -11,8 +11,14 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "Devices")
 public class Device {
 
+    public Device(){
 
+    }
 
+    public Device(String mac, String name){
+        this.mac = mac;
+        this.name = name;
+    }
 
     @NonNull
     @PrimaryKey
