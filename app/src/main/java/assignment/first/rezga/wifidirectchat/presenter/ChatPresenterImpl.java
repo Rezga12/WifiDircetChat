@@ -109,6 +109,7 @@ public class ChatPresenterImpl implements ChatContract.ChatPresenter {
 
     }
 
+
     @Override
     public void onCommunicationEstsablished() {
 
@@ -123,5 +124,10 @@ public class ChatPresenterImpl implements ChatContract.ChatPresenter {
     public void waitForConnectionAndStart() {
         communicator.startCommunication(peerAddr,isOwner);
         view.showLoadingBar();
+    }
+
+    @Override
+    public void closeConnection() {
+        communicator.closeConnection();
     }
 }

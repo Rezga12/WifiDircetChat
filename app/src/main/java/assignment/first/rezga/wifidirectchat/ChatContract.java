@@ -1,5 +1,6 @@
 package assignment.first.rezga.wifidirectchat;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -23,6 +24,8 @@ public interface ChatContract {
         void cleanConnections();
 
         void waitForConnectionAndStart();
+
+        void closeConnection();
     }
 
     interface ChatView{
@@ -42,6 +45,8 @@ public interface ChatContract {
     interface ChatCommunicator{
         void sendMessage(String message);
         void startCommunication(String address, boolean isOwner);
+
+        void closeConnection();
     }
 
 }

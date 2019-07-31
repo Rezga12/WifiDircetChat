@@ -78,7 +78,7 @@ public class ListPeersFragment extends Fragment implements AvailablePeersContrac
 
         interactor = new P2pPeerListInteractor(presenter,getActivity());
 
-        interactor.initiateDiscovery();
+
 
         return view;
     }
@@ -127,6 +127,9 @@ public class ListPeersFragment extends Fragment implements AvailablePeersContrac
             receiver = new MyBroadcastReceiver(interactor,this,presenter);
             activity.registerReceiver(receiver, intentFilter);
         }
+
+        interactor.initiateDiscovery();
+
     }
 
     @Override

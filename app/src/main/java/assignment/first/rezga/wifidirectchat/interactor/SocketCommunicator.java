@@ -38,6 +38,16 @@ public class SocketCommunicator implements ChatContract.ChatCommunicator {
         new CommunicateAsyncTask(isOwner,address,this,presenter).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
+    @Override
+    public void closeConnection() {
+        if(socket != null){
+            try {
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 
     private static class CommunicateAsyncTask extends AsyncTask<Void,Void,Void> {
@@ -47,8 +57,7 @@ public class SocketCommunicator implements ChatContract.ChatCommunicator {
         private SocketCommunicator communicator;
 
 
-
-        CommunicateAsyncTask(boolean isOwner, String address, SocketCommunicator communicator, ChatContract.ChatPresenter presenter){
+        CommunicateAsyncTask(boolean isOwner, String address, SocketCommunicator communicator, ChatContract.ChatPresenter presenter) {
             this.isOwner = isOwner;
             this.address = address;
             this.communicator = communicator;
@@ -59,9 +68,8 @@ public class SocketCommunicator implements ChatContract.ChatCommunicator {
         protected Void doInBackground(Void... voids) {
 
 
-
             Socket mySocket = null;
-            if(isOwner){
+            if (isOwner) {
                 ServerSocket serverSocket = null;
 
                 try {
@@ -78,7 +86,7 @@ public class SocketCommunicator implements ChatContract.ChatCommunicator {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }else{
+            } else {
                 mySocket = new Socket();
                 try {
                     mySocket.bind(null);
@@ -99,27 +107,29 @@ public class SocketCommunicator implements ChatContract.ChatCommunicator {
             //presenter.loadMessages();
             publishProgress();
 
-            while (true){
-                assert mySocket != null;
-                try {
-//                    Log.i("AAAA","trying to receive : " +  mySocket.getLocalAddress() + " " + mySocket.getLocalSocketAddress() + " " + mySocket.getRemoteSocketAddress());
+            while (true) {
 
+                try {
+                    Log.i("AAAA","trying to receive : " +  mySocket.getLocalAddress() + " " + mySocket.getLocalSocketAddress() + " " + mySocket.getRemoteSocketAddress());
+                    if (mySocket == null || mySocket.isClosed()) {
+                        break;
+                    }
                     DataInputStream dIn = new DataInputStream(mySocket.getInputStream());
                     String str = dIn.readUTF();
-                    Log.i("AAAA","text: " + str);
+                    Log.i("AAAA", "text: " + str);
 //                    publishProgress(str);
 
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-
+            return null;
         }
 
         @Override
         protected void onProgressUpdate(Void... voids) {
             super.onProgressUpdate(voids);
-            Toast.makeText(ChatActivity.getContext(),"sockets connected with yoeac other",Toast.LENGTH_LONG).show();
+            Toast.makeText(ChatActivity.getContext(), "sockets connected with yoeac other", Toast.LENGTH_LONG).show();
 
 
         }

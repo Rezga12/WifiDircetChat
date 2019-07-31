@@ -175,19 +175,35 @@ public class ChatActivity extends AppCompatActivity implements ChatContract.Chat
     @Override
     protected void onPause() {
         super.onPause();
-//        WifiP2pManager manager = (WifiP2pManager)getSystemService(Context.WIFI_P2P_SERVICE);
-//        WifiP2pManager.Channel channel = manager.initialize(this, getMainLooper(), null);
-//
-//        manager.removeGroup(channel, new WifiP2pManager.ActionListener() {
-//            @Override
-//            public void onSuccess() {
-//
-//            }
-//
-//            @Override
-//            public void onFailure(int reason) {
-//
-//            }
-//        });
+        WifiP2pManager manager = (WifiP2pManager)getSystemService(Context.WIFI_P2P_SERVICE);
+        WifiP2pManager.Channel channel = manager.initialize(this, getMainLooper(), null);
+
+        /*manager.cancelConnect(channel, new WifiP2pManager.ActionListener() {
+            @Override
+            public void onSuccess() {
+
+            }
+
+            @Override
+            public void onFailure(int reason) {
+
+            }
+        });*/
+
+        presenter.closeConnection();
+
+        manager.removeGroup(channel, new WifiP2pManager.ActionListener() {
+            @Override
+            public void onSuccess() {
+
+            }
+
+            @Override
+            public void onFailure(int reason) {
+
+            }
+        });
+
+
     }
 }
