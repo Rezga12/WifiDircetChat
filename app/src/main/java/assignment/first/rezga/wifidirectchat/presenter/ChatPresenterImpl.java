@@ -41,7 +41,7 @@ public class ChatPresenterImpl implements ChatContract.ChatPresenter {
 
 
         this.peerMacAddr = peerMacAddr;
-        repo.insertDevice(new Device(peerAddr,peerName));
+        repo.insertDevice(new Device(peerMacAddr,peerName));
 
     }
 

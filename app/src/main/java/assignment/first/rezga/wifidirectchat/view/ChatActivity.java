@@ -81,7 +81,7 @@ public class ChatActivity extends AppCompatActivity implements ChatContract.Chat
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+            if (!editText.getText().toString().equals(""))
                 presenter.sendButtonClicked(editText.getText().toString());
             }
         });
