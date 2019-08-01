@@ -11,6 +11,7 @@
     <color name="background">#2F3136</color>
     <color name="default_font_color">#D1D1D1</color>
     <color name="default_color_two">#3B5B61</color>
+    <color name="default_color_three">#49747C</color>
     <color name="colorSecondaryLight">#4B5058</color>
     <color name="transparentBackground">#7A2F3136</color>
 

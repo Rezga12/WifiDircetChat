@@ -25,11 +25,14 @@ public class AvailablePeersPresenterImpl implements AvailablePeersContract.Avail
 
     @Override
     public void loadPeerList() {
-
+        view.showLoadingAnimation();
     }
+
+
 
     @Override
     public void updatePeerList(List<Device> devices) {
+        view.hideLoadingAnimation();
         this.devices = devices;
         view.refreshPeerList();
     }
@@ -61,6 +64,7 @@ public class AvailablePeersPresenterImpl implements AvailablePeersContract.Avail
     @Override
     public void startConnection(String peerName, String peerAddr) {
         connector.requestConnectionInfo(peerName, peerAddr);
+
     }
 
 

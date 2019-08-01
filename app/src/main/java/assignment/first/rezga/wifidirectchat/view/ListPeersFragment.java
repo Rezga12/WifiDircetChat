@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.AnimationDrawable;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -45,7 +47,8 @@ public class ListPeersFragment extends Fragment implements AvailablePeersContrac
 
     private P2pPeerListInteractor interactor;
 
-
+    private ImageView loading;
+    private AnimationDrawable animationDrawable;
 
     public static ListPeersFragment newInstance() {
 
@@ -77,7 +80,8 @@ public class ListPeersFragment extends Fragment implements AvailablePeersContrac
 
         interactor = new P2pPeerListInteractor(presenter,getActivity());
 
-
+        loading = view.findViewById(R.id.loading_animation);
+        animationDrawable = (AnimationDrawable) loading.getDrawable();
 
         return view;
     }
@@ -147,6 +151,18 @@ public class ListPeersFragment extends Fragment implements AvailablePeersContrac
         adapter.notifyDataSetChanged();
     }
 
+    @Override
+    public void showLoadingAnimation() {
+        animationDrawable.setVisible(true,true);
+        animationDrawable.start();
+
+    }
+
+    @Override
+    public void hideLoadingAnimation() {
+        animationDrawable.stop();
+        animationDrawable.setVisible(false,false);
+    }
 
 
     @Override

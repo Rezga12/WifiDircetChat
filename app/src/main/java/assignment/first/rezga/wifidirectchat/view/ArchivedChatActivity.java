@@ -105,7 +105,7 @@ public class ArchivedChatActivity extends AppCompatActivity implements DisplayCh
     public void setLastActiveDate(Date date) {
         //TODO: will have to format date properly here.
 
-        chatDateField.setText(date.toString());
+        //chatDateField.setText(date.toString());
     }
 
     @Override

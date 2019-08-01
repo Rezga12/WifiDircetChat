@@ -49,11 +49,11 @@ public class MessageRepository {
         new DeleteAllTask().execute();
     }
 
-    public void deleteMessagesTask(String peerAddr){
+    public void deleteMessage(String peerAddr){
         new DeleteMessagesTask().execute(peerAddr);
     }
 
-    public void deleteDeviceTask(String peerAddr){
+    public void deleteDevice(String peerAddr){
         new DeleteDevicesTask().execute(peerAddr);
     }
 

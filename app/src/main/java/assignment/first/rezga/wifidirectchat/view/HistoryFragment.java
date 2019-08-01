@@ -7,10 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,6 +41,8 @@ public class HistoryFragment extends Fragment implements  MainContract.HistoryVi
     private RecyclerView recyclerView;
     private HistoryAdapter adapter;
     private MainContract.HistoryPresenter presenter;
+
+    private ConstraintLayout clearHistoryBUtton;
 
 
 
@@ -68,6 +73,14 @@ public class HistoryFragment extends Fragment implements  MainContract.HistoryVi
 
         MainActivity.showDebugDBAddressLogToast(MainActivity.getContext());
 
+        clearHistoryBUtton = view.findViewById(R.id.clear_container);
+        clearHistoryBUtton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup();
+            }
+        });
+
         return view;
     }
 
@@ -86,5 +99,25 @@ public class HistoryFragment extends Fragment implements  MainContract.HistoryVi
     @Override
     public void refreshDeviceList() {
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void showPopup() {
+        if(getActivity() != null) {
+            FragmentManager fm = getActivity().getSupportFragmentManager();
+            Pop editNameDialogFragment = Pop.newInstance("", presenter);
+            editNameDialogFragment.show(fm, "fragment_dialog");
+
+        }
+    }
+
+    @Override
+    public void shopDevicePopUp(String name, String peerAddr) {
+        if(getActivity() != null) {
+            FragmentManager fm = getActivity().getSupportFragmentManager();
+            PopDevice editNameDialogFragment = PopDevice.newInstance(name,peerAddr, presenter);
+            editNameDialogFragment.show(fm, "fragment_dialog");
+
+        }
     }
 }

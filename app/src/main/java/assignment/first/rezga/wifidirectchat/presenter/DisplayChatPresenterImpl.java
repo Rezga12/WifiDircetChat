@@ -38,6 +38,7 @@ public class DisplayChatPresenterImpl implements DisplayChatContract.DisplayChat
     public void onBindViewHOlderAtPosition(int position, DisplayChatContract.ChatCellHolder holder) {
         //holder.setIsOwnerMessage(messages.get(position).isOwnMessage);
         holder.setMessage(messages.get(position).message);
+        holder.setMessageTime(messages.get(position).sendTime);
         //view.refreshMessageList();
     }
 

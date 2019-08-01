@@ -26,6 +26,8 @@ public interface DisplayChatContract {
     }
 
     interface ChatCellHolder{
+        void setMessageTime(Date date);
+
         void setMessage(String text);
         void setIsOwnerMessage(boolean isOwnerMessage);
     }

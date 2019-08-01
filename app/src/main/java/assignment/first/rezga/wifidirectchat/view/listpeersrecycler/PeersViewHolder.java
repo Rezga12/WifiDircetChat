@@ -1,6 +1,8 @@
 package assignment.first.rezga.wifidirectchat.view.listpeersrecycler;
 
+import android.graphics.PorterDuff;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -31,6 +33,9 @@ public class PeersViewHolder extends RecyclerView.ViewHolder implements Availabl
                 PeersViewHolder.this.presenter.onCellClicked(getAdapterPosition());
             }
         });
+
+        ImageView broom_right = itemView.findViewById(R.id.wifi_icon);
+        broom_right.setColorFilter(R.color.default_font_color,PorterDuff.Mode.SRC_ATOP);
     }
 
 

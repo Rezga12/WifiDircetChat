@@ -20,6 +20,7 @@ public class HistoryViewHolder extends RecyclerView.ViewHolder implements MainCo
     private TextView time;
     private TextView messageNum;
     private ImageView letter;
+    private String peerAddr;
 
     private MainContract.HistoryPresenter presenter;
 
@@ -39,11 +40,26 @@ public class HistoryViewHolder extends RecyclerView.ViewHolder implements MainCo
             }
         });
 
+        itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+
+                HistoryViewHolder.this.presenter.onDeviceItemLongClick(nameField.getText().toString(),peerAddr);
+
+                return false;
+            }
+        });
+
         letter = itemView.findViewById(R.id.letter);
         letter.setColorFilter(MainActivity.getContext().getResources().getColor(R.color.default_font_color), PorterDuff.Mode.SRC_ATOP);
 
 
 
+    }
+
+    @Override
+    public void setPeerAddress(String address){
+        peerAddr = address;
     }
 
     @Override

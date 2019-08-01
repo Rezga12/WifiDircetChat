@@ -11,6 +11,9 @@ import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.transition.TransitionManager;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import assignment.first.rezga.wifidirectchat.DisplayChatContract;
 import assignment.first.rezga.wifidirectchat.R;
 import assignment.first.rezga.wifidirectchat.view.ArchivedChatActivity;
@@ -25,6 +28,8 @@ public class ArchivedChatViewHolder extends RecyclerView.ViewHolder implements D
     private ConstraintLayout root;
 
     private DisplayChatContract.DisplayChatPresenter presenter;
+
+    private TextView messageTime;
 
     private boolean showtime = false;
 
@@ -65,6 +70,16 @@ public class ArchivedChatViewHolder extends RecyclerView.ViewHolder implements D
                 showtime = !showtime;
             }
         });
+
+        messageTime = itemView.findViewById(R.id.message_time);
+    }
+
+    @Override
+    public void setMessageTime(Date date){
+        SimpleDateFormat format = new SimpleDateFormat("EEEE, HH:mm");
+
+        String dateString = format.format( date  );
+        messageTime.setText(dateString);
     }
 
 

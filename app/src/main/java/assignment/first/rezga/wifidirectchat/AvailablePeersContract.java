@@ -24,7 +24,8 @@ public interface AvailablePeersContract {
 
     interface AvailablePeersView{
         void refreshPeerList();
-
+        void showLoadingAnimation();
+        void hideLoadingAnimation();
         void navigateToChat(String name, String mac, boolean isOwner, String peerMacAddr);
     }
 
