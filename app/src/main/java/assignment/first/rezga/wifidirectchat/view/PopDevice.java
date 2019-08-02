@@ -60,7 +60,7 @@ public class PopDevice extends DialogFragment {
 
         if(getArguments() != null){
             String name = getArguments().getString("name", "");
-            title.setText("Remove Conversation With " + name);
+            title.setText("Remove Conversation With " + name + "?");
             mac = getArguments().getString("mac", "");
         }
 
@@ -81,6 +81,8 @@ public class PopDevice extends DialogFragment {
                 dismiss();
             }
         });
+
+        clear.setText("Remove");
 
     }
 }

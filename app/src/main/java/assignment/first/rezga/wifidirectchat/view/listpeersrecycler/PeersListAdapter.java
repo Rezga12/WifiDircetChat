@@ -35,7 +35,7 @@ public class PeersListAdapter extends RecyclerView.Adapter<PeersViewHolder> {
 
     @Override
     public int getItemCount() {
-        Log.i("AAAA","size returned "  + presenter.getPeerCount());
+        //Log.i("AAAA","size returned "  + presenter.getPeerCount());
         return presenter.getPeerCount();
     }
 }

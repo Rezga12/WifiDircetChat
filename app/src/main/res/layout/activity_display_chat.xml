@@ -9,9 +9,11 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:theme="@style/AppTheme.AppBarOverlay" >
+        android:theme="@style/AppTheme.AppBarOverlay"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@drawable/background_gradient_toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -21,11 +23,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="164dp"
-                android:layout_marginTop="12dp"
                 android:layout_marginEnd="164dp"
                 android:text="Phone Name"
                 android:textColor="@color/chat_toolbar_font_color"
-                android:textSize="18sp"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.526"
                 app:layout_constraintStart_toStartOf="parent"

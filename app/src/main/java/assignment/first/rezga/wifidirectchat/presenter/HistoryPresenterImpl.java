@@ -32,6 +32,7 @@ public class HistoryPresenterImpl implements MainContract.HistoryPresenter {
                     Log.i("AAAA",device.name + " " + device.messageNum + device.lastDate);
                 }
                 updateData(devices);
+                view.setEmptyMessageVisible(devices.size() == 0);
             }
         });
     }

@@ -2,8 +2,8 @@
 <resources>
     <color name="colorPrimary">#202225</color>
     <color name="colorPrimaryLight">#222329</color>
-    <color name="colorPrimaryLightTransparent">#65383B44</color>
-    <color name ="colorLightTransparent">#65404F5A</color>
+    <color name="colorPrimaryLightTransparent">#862E3842</color>
+    <color name ="colorLightTransparent">#803C5064</color>
     <color name="colorPrimaryDark">#17171A</color>
     <color name="colorSecondary">#36393F</color>
     <color name="colorAccent">#D81B60</color>

@@ -1,5 +1,7 @@
 package assignment.first.rezga.wifidirectchat.presenter;
 
+import android.util.Log;
+
 import androidx.fragment.app.FragmentActivity;
 
 import java.util.ArrayList;
@@ -32,6 +34,7 @@ public class AvailablePeersPresenterImpl implements AvailablePeersContract.Avail
 
     @Override
     public void updatePeerList(List<Device> devices) {
+        Log.i("AAAA","update peer ilist");
         view.hideLoadingAnimation();
         this.devices = devices;
         view.refreshPeerList();

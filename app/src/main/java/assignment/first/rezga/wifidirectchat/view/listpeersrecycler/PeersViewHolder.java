@@ -6,9 +6,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import assignment.first.rezga.wifidirectchat.AvailablePeersContract;
+import assignment.first.rezga.wifidirectchat.MainActivity;
 import assignment.first.rezga.wifidirectchat.R;
 
 public class PeersViewHolder extends RecyclerView.ViewHolder implements AvailablePeersContract.PeersListHolder {
@@ -35,7 +37,7 @@ public class PeersViewHolder extends RecyclerView.ViewHolder implements Availabl
         });
 
         ImageView broom_right = itemView.findViewById(R.id.wifi_icon);
-        broom_right.setColorFilter(R.color.default_font_color,PorterDuff.Mode.SRC_ATOP);
+        broom_right.setColorFilter(MainActivity.getContext().getResources().getColor(R.color.default_font_color),PorterDuff.Mode.SRC_ATOP);
     }
 
 

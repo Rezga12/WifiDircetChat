@@ -30,6 +30,8 @@ public interface MainContract  {
         void showPopup();
 
         void shopDevicePopUp(String name, String peerAddr);
+
+        void setEmptyMessageVisible(boolean val);
     }
 
     interface DeviceItemHolder{

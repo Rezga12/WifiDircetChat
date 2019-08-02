@@ -153,6 +153,7 @@ public class ListPeersFragment extends Fragment implements AvailablePeersContrac
 
     @Override
     public void showLoadingAnimation() {
+        loading.setVisibility(View.VISIBLE);
         animationDrawable.setVisible(true,true);
         animationDrawable.start();
 
@@ -162,6 +163,7 @@ public class ListPeersFragment extends Fragment implements AvailablePeersContrac
     public void hideLoadingAnimation() {
         animationDrawable.stop();
         animationDrawable.setVisible(false,false);
+        loading.setVisibility(View.INVISIBLE);
     }
 
 

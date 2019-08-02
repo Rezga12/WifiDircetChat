@@ -43,6 +43,7 @@ public class HistoryFragment extends Fragment implements  MainContract.HistoryVi
     private MainContract.HistoryPresenter presenter;
 
     private ConstraintLayout clearHistoryBUtton;
+    private TextView historyEmpty;
 
 
 
@@ -80,6 +81,8 @@ public class HistoryFragment extends Fragment implements  MainContract.HistoryVi
                 showPopup();
             }
         });
+
+        historyEmpty = view.findViewById(R.id.history_empty);
 
         return view;
     }
@@ -119,5 +122,17 @@ public class HistoryFragment extends Fragment implements  MainContract.HistoryVi
             editNameDialogFragment.show(fm, "fragment_dialog");
 
         }
+    }
+
+    @Override
+    public void setEmptyMessageVisible(boolean val){
+        if(!val){
+            historyEmpty.setVisibility(View.INVISIBLE);
+            clearHistoryBUtton.setVisibility(View.VISIBLE);
+        }else{
+            historyEmpty.setVisibility(View.VISIBLE);
+            clearHistoryBUtton.setVisibility(View.INVISIBLE);
+        }
+
     }
 }
