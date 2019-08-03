@@ -9,8 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import assignment.first.rezga.wifidirectchat.ChatContract;
 import assignment.first.rezga.wifidirectchat.R;
+import assignment.first.rezga.wifidirectchat.view.archivedChat.ArchivedChatViewHolder;
 
-public class ChatAdapter extends RecyclerView.Adapter<ChatViewHolder> {
+public class ChatAdapter extends RecyclerView.Adapter<ArchivedChatViewHolder> {
     private ChatContract.ChatPresenter presenter;
 
     private static final int SELF_MESSAGE = 1;
@@ -23,20 +24,22 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatViewHolder> {
 
     @NonNull
     @Override
-    public ChatViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ArchivedChatViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
 
         if(viewType == SELF_MESSAGE){
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cell_chat_self,parent,false);
+            return new ArchivedChatViewHolder(view,true,this);
         }else{
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cell_chat_other,parent,false);
+            return new ArchivedChatViewHolder(view,false,this);
         }
 
-        return new ChatViewHolder(view,presenter);
+
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ChatViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ArchivedChatViewHolder holder, int position) {
         presenter.onBindViewHOlderAtPosition(position, holder);
     }
 

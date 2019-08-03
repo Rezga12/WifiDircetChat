@@ -39,7 +39,7 @@ public class ArchivedChatAdapter extends RecyclerView.Adapter<ArchivedChatViewHo
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cell_chat_other,parent,false);
         }
 
-        return new ArchivedChatViewHolder(view,presenter,activity,isSelf);
+        return new ArchivedChatViewHolder(view,isSelf,this);
     }
 
     @Override

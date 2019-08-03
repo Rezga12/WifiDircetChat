@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -115,6 +116,20 @@ public class ArchivedChatActivity extends AppCompatActivity implements DisplayCh
 
     @Override
     public void refreshMessageList() {
+
         adapter.notifyDataSetChanged();
+        recyclerView.scheduleLayoutAnimation();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("AAAA","onDestroy");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("AAAA","onPause");
     }
 }

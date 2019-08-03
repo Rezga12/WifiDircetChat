@@ -47,6 +47,8 @@ public class SocketCommunicator implements ChatContract.ChatCommunicator {
                 e.printStackTrace();
             }
         }
+
+
     }
 
 
@@ -125,6 +127,11 @@ public class SocketCommunicator implements ChatContract.ChatCommunicator {
 
                 } catch (IOException e) {
                     e.printStackTrace();
+
+
+                    publishProgress("``lol``");
+
+                    break;
                 }
             }
             try {
@@ -139,6 +146,12 @@ public class SocketCommunicator implements ChatContract.ChatCommunicator {
         @Override
         protected void onProgressUpdate(String... messages) {
             super.onProgressUpdate(messages);
+
+            if(messages[0].equals("``lol``")){
+                presenter.onBackPressed();
+                return;
+            }
+
             if(messages[0].equals("")){
                 //Toast.makeText(ChatActivity.getContext(), "sockets connected with yoeac other", Toast.LENGTH_LONG).show();
                 presenter.loadMessages();

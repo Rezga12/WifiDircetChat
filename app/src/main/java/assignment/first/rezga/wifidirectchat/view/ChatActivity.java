@@ -49,7 +49,7 @@ import assignment.first.rezga.wifidirectchat.view.chat.ChatAdapter;
 public class ChatActivity extends AppCompatActivity implements ChatContract.ChatView {
 
     private RecyclerView recyclerView;
-    private Button sendButton;
+    private ImageView sendButton;
     private EditText editText;
 
 
@@ -152,12 +152,12 @@ public class ChatActivity extends AppCompatActivity implements ChatContract.Chat
     public void setLastActiveDate(Date date) {
         //TODO: will have to format date properly here.
 
-        chatDateField.setText(date.toString());
+        //chatDateField.setText(date.toString());
     }
 
     @Override
     public void navigateBackToMain() {
-        onBackPressed();
+        super.onBackPressed();
     }
 
     @Override
@@ -178,6 +178,21 @@ public class ChatActivity extends AppCompatActivity implements ChatContract.Chat
     @Override
     protected void onPause() {
         super.onPause();
+        Log.i("AAAA","on Pause");
+
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("AAAA","onDestroy");
+
+    }
+
+    @Override
+    public void closeConnection(){
         WifiP2pManager manager = (WifiP2pManager)getSystemService(Context.WIFI_P2P_SERVICE);
         WifiP2pManager.Channel channel = manager.initialize(this, getMainLooper(), null);
 
@@ -193,7 +208,7 @@ public class ChatActivity extends AppCompatActivity implements ChatContract.Chat
             }
         });*/
 
-        presenter.closeConnection();
+        //presenter.closeConnection();
 
         manager.removeGroup(channel, new WifiP2pManager.ActionListener() {
             @Override
@@ -206,7 +221,12 @@ public class ChatActivity extends AppCompatActivity implements ChatContract.Chat
 
             }
         });
+    }
 
+    @Override
+    public void onBackPressed() {
 
+        presenter.onBackPressed();
+        //super.onBackPressed();
     }
 }

@@ -47,6 +47,8 @@ public class ChatPresenterImpl implements ChatContract.ChatPresenter {
 
     @Override
     public void onBackPressed() {
+        closeConnection();
+        view.closeConnection();
         view.navigateBackToMain();
     }
 
@@ -61,15 +63,16 @@ public class ChatPresenterImpl implements ChatContract.ChatPresenter {
     }
 
     @Override
-    public void onBindViewHOlderAtPosition(int position, ChatContract.CellHolder holder) {
+    public void onBindViewHOlderAtPosition(int position, DisplayChatContract.ChatCellHolder holder) {
         holder.setMessage(messages.get(position).message);
+        holder.setMessageTime(messages.get(position).sendTime);
     }
 
 
     @Override
     public void loadMessages() {
         Log.i("AAAA", "load messages");
-        Toast.makeText(ChatActivity.getContext(), "loaded message", Toast.LENGTH_LONG).show();
+        //Toast.makeText(ChatActivity.getContext(), "loaded message", Toast.LENGTH_LONG).show();
         repo.loadAllMessages(peerMacAddr, new MessageRepository.MessagePostHandler() {
             @Override
             public void handleResponse(List<Message> messages) {

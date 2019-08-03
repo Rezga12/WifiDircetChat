@@ -64,6 +64,7 @@ public class P2pPeerListInteractor {
     public void initiateDiscovery(){
         Log.i("AAAA","dicovering..");
         presenter.loadPeerList();
+
         manager.discoverPeers(channel, new WifiP2pManager.ActionListener() {
 
             @Override
@@ -77,7 +78,7 @@ public class P2pPeerListInteractor {
 
 
     public void requestPeers(){
-
+        presenter.loadPeerList();
         manager.requestPeers(channel, peerListListener);
 
 

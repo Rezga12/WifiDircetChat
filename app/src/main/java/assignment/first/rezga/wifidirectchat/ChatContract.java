@@ -12,7 +12,7 @@ public interface ChatContract {
         void onBackPressed();
         void onRemovePressed();
         int getMessageCount();
-        void onBindViewHOlderAtPosition(int position, CellHolder holder);
+        void onBindViewHOlderAtPosition(int position, DisplayChatContract.ChatCellHolder holder);
         void loadMessages();
         void updateData(List<Message> data);
         boolean isSelfMessage(int position);
@@ -36,6 +36,8 @@ public interface ChatContract {
         void clearMessageField();
 
         void showLoadingBar();
+
+        void closeConnection();
     }
 
     interface CellHolder{

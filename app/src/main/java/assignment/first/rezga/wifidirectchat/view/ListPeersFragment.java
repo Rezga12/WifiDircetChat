@@ -12,7 +12,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -50,6 +52,11 @@ public class ListPeersFragment extends Fragment implements AvailablePeersContrac
     private ImageView loading;
     private AnimationDrawable animationDrawable;
 
+    private TextView loadingMessage;
+    private Button cancelButton;
+
+    private TextView noDevicesFoundMessage;
+
     public static ListPeersFragment newInstance() {
 
         Bundle args = new Bundle();
@@ -82,6 +89,14 @@ public class ListPeersFragment extends Fragment implements AvailablePeersContrac
 
         loading = view.findViewById(R.id.loading_animation);
         animationDrawable = (AnimationDrawable) loading.getDrawable();
+
+        cancelButton = view.findViewById(R.id.cancel_button);
+        loadingMessage = view.findViewById(R.id.loading_message);
+
+        cancelButton.setVisibility(View.INVISIBLE);
+        loadingMessage.setVisibility(View.INVISIBLE);
+
+        noDevicesFoundMessage = view.findViewById(R.id.no_devices_found_text);
 
         return view;
     }
@@ -154,16 +169,18 @@ public class ListPeersFragment extends Fragment implements AvailablePeersContrac
     @Override
     public void showLoadingAnimation() {
         loading.setVisibility(View.VISIBLE);
-        animationDrawable.setVisible(true,true);
         animationDrawable.start();
+        recyclerView.setVisibility(View.INVISIBLE);
 
     }
 
     @Override
     public void hideLoadingAnimation() {
+        if(connectiong)
+            return;
         animationDrawable.stop();
-        animationDrawable.setVisible(false,false);
         loading.setVisibility(View.INVISIBLE);
+        recyclerView.setVisibility(View.VISIBLE);
     }
 
 
@@ -178,5 +195,37 @@ public class ListPeersFragment extends Fragment implements AvailablePeersContrac
             getActivity().startActivity(intent);
         }
 
+    }
+
+    private boolean connectiong = false;
+
+    @Override
+    public void startLoading() {
+        Log.i("AAAA","start loading");
+        loading.setVisibility(View.VISIBLE);
+        animationDrawable.start();
+        recyclerView.setVisibility(View.INVISIBLE);
+        cancelButton.setVisibility(View.VISIBLE);
+        loadingMessage.setVisibility(View.VISIBLE);
+        connectiong = true;
+    }
+
+    @Override
+    public void stopLoading(){
+        loading.setVisibility(View.INVISIBLE);
+        animationDrawable.stop();
+        recyclerView.setVisibility(View.VISIBLE);
+        cancelButton.setVisibility(View.INVISIBLE);
+        loadingMessage.setVisibility(View.INVISIBLE);
+        connectiong=false;
+    }
+
+    @Override
+    public void setNoDevicesMessageVisibility(boolean b) {
+        if(b){
+            noDevicesFoundMessage.setVisibility(View.VISIBLE);
+        }else{
+            noDevicesFoundMessage.setVisibility(View.INVISIBLE);
+        }
     }
 }

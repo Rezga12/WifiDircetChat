@@ -27,6 +27,12 @@ public interface AvailablePeersContract {
         void showLoadingAnimation();
         void hideLoadingAnimation();
         void navigateToChat(String name, String mac, boolean isOwner, String peerMacAddr);
+
+        void startLoading();
+
+        void stopLoading();
+
+        void setNoDevicesMessageVisibility(boolean b);
     }
 
     interface PeersListHolder{

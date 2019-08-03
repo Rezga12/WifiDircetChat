@@ -19,6 +19,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.Menu;
+import android.view.View;
 import android.widget.Toast;
 
 import java.lang.reflect.Method;
@@ -85,8 +86,6 @@ public class MainActivity extends AppCompatActivity
 
 
 
-
-        //getActionBar().setTitle("History");
 
 
 
@@ -181,4 +180,6 @@ public class MainActivity extends AppCompatActivity
             }
         }
     }
+
+
 }

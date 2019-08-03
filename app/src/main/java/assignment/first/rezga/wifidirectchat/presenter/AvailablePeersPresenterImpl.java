@@ -38,6 +38,8 @@ public class AvailablePeersPresenterImpl implements AvailablePeersContract.Avail
         view.hideLoadingAnimation();
         this.devices = devices;
         view.refreshPeerList();
+        view.setNoDevicesMessageVisibility(devices.size() == 0);
+
     }
 
     @Override
@@ -55,13 +57,15 @@ public class AvailablePeersPresenterImpl implements AvailablePeersContract.Avail
 
     @Override
     public void onCellClicked(int position) {
-
+        view.startLoading();
         connector.connectToPeer(devices.get(position).mac,devices.get(position).name);
     }
 
     @Override
     public void onSuccessfulConnection(String peerName, String peerAddr, boolean isOwner,String peerMacAddr) {
+
         view.navigateToChat(peerName,peerAddr,isOwner,peerMacAddr);
+        view.stopLoading();
     }
 
     @Override

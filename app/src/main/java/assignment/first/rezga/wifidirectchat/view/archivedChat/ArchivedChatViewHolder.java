@@ -3,6 +3,7 @@ package assignment.first.rezga.wifidirectchat.view.archivedChat;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,13 +28,11 @@ public class ArchivedChatViewHolder extends RecyclerView.ViewHolder implements D
 
     private ConstraintLayout root;
 
-    private DisplayChatContract.DisplayChatPresenter presenter;
-
     private TextView messageTime;
 
     private boolean showtime = false;
 
-    public ArchivedChatViewHolder(@NonNull final View itemView, DisplayChatContract.DisplayChatPresenter presenter, final ArchivedChatActivity activity, boolean isSelf) {
+    public ArchivedChatViewHolder(@NonNull final View itemView, boolean isSelf, final RecyclerView.Adapter adapter) {
         super(itemView);
 
         messageText = itemView.findViewById(R.id.message_text);
