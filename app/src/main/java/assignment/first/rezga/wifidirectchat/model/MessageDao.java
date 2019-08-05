@@ -11,7 +11,7 @@ import java.util.List;
 @Dao
 public interface MessageDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertDevice(Device device);
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
